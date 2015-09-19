@@ -1,0 +1,301 @@
+\documentclass[english,11pt]{article}
+
+\usepackage{helvet}
+\usepackage{times}
+\usepackage{a4wide}
+\usepackage{latexsym}
+\usepackage{babel}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{epsfig}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{gensymb}
+
+\usepackage{euproposal}
+
+\usepackage[a4paper, top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{natbib}
+\setlength{\bibsep}{0pt plus 0.3ex}
+
+
+%CP: remove that for final version?
+\usepackage[linkcolor=blue,colorlinks=true]{hyperref}
+
+\newcommand{\svnrevision}{PDF generated on \today{}}
+%%\include{svnrevision}
+
+\newcommand{\stepcounterarabic}[1]{\stepcounter{#1}\arabic{#1}}
+
+%\newcommand{\captionfont}{\small \it}
+\usepackage[font={small,it}]{caption}
+\usepackage[right]{eurosym}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{wrapfig,graphicx}
+\usepackage{url}
+
+%%---------------------------------------------------------------------
+%% Define some useful macros
+%%---------------------------------------------------------------------
+\usepackage{xspace}
+\makeatletter
+
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+\def\eg{{e.g}\onedot} \def\Eg{{E.g}\onedot}
+\def\ie{{i.e}\onedot} \def\Ie{{I.e}\onedot}
+\def\cf{{c.f}\onedot} \def\Cf{{C.f}\onedot}
+\def\etc{{etc}\onedot} \def\vs{{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+\usepackage{color}
+%\newcommand{\comment}[1]{{\bf\color{green} Comment: #1}}
+%\renewcommand{\todo}[1]{{\bf\color{red} TODO: #1}}
+%\newcommand{\comment}[1]{} %makes all comments disappear
+%\renewcommand{\todo}[1]{} %makes all todos disappear
+
+%\newcommand{\ProjectTitle}{Valet Parking in Open Neighborhood Areas}
+\newcommand{\ProjectTitle}{Automated Urban Parking and Driving}
+\newcommand{\Project}{UP-Drive\xspace}
+
+\pagestyle{empty}
+\pagestyle{fancy}
+%\setlength{\headsep}{15pt}
+%\setlength{\footskip}{20pt}
+\fancyhf{} % remove everything
+
+\chead{H2020-ICT-24-2015: Robotics \hspace{24mm}  \today  \hfill \Project{}}
+
+
+%% Partners
+\newcommand{\VWNo}{1\xspace}
+\newcommand{\VW}{VW\xspace}
+\newcommand{\ETHZNo}{2\xspace}
+\newcommand{\ETHZ}{ETHZ\xspace}
+\newcommand{\IBMNo}{3\xspace}
+\newcommand{\IBM}{IBM\xspace}
+\newcommand{\CLUJNo}{4\xspace}
+\newcommand{\CLUJ}{UTC\xspace}
+\newcommand{\PRAGUENo}{5\xspace}
+\newcommand{\PRAGUE}{CVUT\xspace}
+
+\newcommand{\COORDNo}{\VWNo}
+\newcommand{\COORD}{\VW}
+
+\newcommand{\Coordinator}{Wojciech Derendarz\xspace}
+\newcommand{\ManagerInstitution}{\VW}
+
+\newcommand{\ViceCoordinator}{\todo{Vice Coordinator Name}}
+\newcommand{\VCoordInstitution}{\todo{Vice Coordinator Institution}}
+
+
+%% WPs
+\newcommand{\WPSpecificationNo}{1\xspace}
+\newcommand{\WPSpecification}{WP\WPSpecificationNo}
+\newcommand{\WPSpecificationTitle}{Requirements, System \& Components Specification and Architecture\xspace}
+
+\newcommand{\WPVehicleNo}{2\xspace}
+\newcommand{\WPVehicle}{WP\WPVehicleNo}
+\newcommand{\WPVehicleTitle}{Vehicle Infrastructure\xspace}
+
+\newcommand{\WPCloudNo}{3\xspace}
+\newcommand{\WPCloud}{WP\WPCloudNo}
+\newcommand{\WPCloudTitle}{Cloud Infrastructure\xspace}
+
+\newcommand{\WPPerceptionNo}{4\xspace}
+\newcommand{\WPPerception}{WP\WPPerceptionNo}
+\newcommand{\WPPerceptionTitle}{Perception\xspace}
+
+\newcommand{\WPMappingNo}{5\xspace}
+\newcommand{\WPMapping}{WP\WPMappingNo}
+\newcommand{\WPMappingTitle}{Lifelong Localization \& Mapping\xspace}
+
+\newcommand{\WPSceneUnderstandingNo}{6\xspace}
+\newcommand{\WPSceneUnderstanding}{WP\WPSceneUnderstandingNo}
+\newcommand{\WPSceneUnderstandingTitle}{Scene Understanding\xspace}
+
+\newcommand{\WPNavigationNo}{7\xspace}
+\newcommand{\WPNavigation}{WP\WPNavigationNo}
+\newcommand{\WPNavigationTitle}{Decision-making and Navigation\xspace}
+
+\newcommand{\WPIntegrationNo}{8\xspace}
+\newcommand{\WPIntegration}{WP\WPIntegrationNo}
+\newcommand{\WPIntegrationTitle}{System Integration and Evaluation\xspace}
+
+\newcommand{\WPInnovationNo}{9\xspace}
+\newcommand{\WPInnovation}{WP\WPInnovationNo}
+\newcommand{\WPInnovationTitle}{Dissemination, Exploitation \& Knowledge Management\xspace}
+
+\newcommand{\WPManagementNo}{10\xspace}
+\newcommand{\WPManagement}{WP\WPManagementNo}
+\newcommand{\WPManagementTitle}{Project Management\xspace}
+
+
+%% leader tag for wp tables
+\newcommand{\leader}[1]{\underline{\bf#1}}
+
+\newcounter{nbcols}\setcounter{nbcols}{2}
+\newcommand\EvolutionBar[2]{\setcounter{nbcols}{(#2+2)/3} #1 & \multicolumn{\thenbcols}{|l|}{\rule[0pt]{2.6mm*#2}{1.7mm}}}
+
+
+%% Command for TRL headers
+\newcommand{\TRLHeader}[3]{
+\begin{center}
+\small
+	\begin{tabular}{| p{0.62\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} |}
+	\hline
+	\shadedCell Technology: {\bf #1} & \shadedCell {\bf Current TRL: #2} & \shadedCell {\bf Target TRL: #3} \\\hline
+    \end{tabular}
+\end{center}
+}
+
+% This command makes wrapfigure line up with the paragraph start.
+\setlength\intextsep{0pt}
+
+\parindent 0pt
+\parskip 1ex
+
+%% Here we go...
+\title{\Large \textit{HORIZON 2020 - WORK PROGRAMME 2014-2015} \\
+Information and Communications Technologies (ICT 2015) Proposal\\[1ex]
+  \large  H2020-ICT-24-2015\\[1ex]
+  \large Proposal ID: SEP-210267718 \\[5ex]
+  \LARGE \ProjectTitle{}\\[2ex]
+  \LARGE \textbf{\Project{}}\\[2ex]
+  \Large Technical Annex Section 1\,--\,3\\
+}
+
+\author{}
+
+\date{\today, Rev.291}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+%\thispagestyle{fancy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\begin{tabular}{|p{1.7cm}|p{7.7cm}|p{2.1cm}|p{2.5cm}|}
+  \hline
+  Participant\newline No. & Participant organization name & Participant\linebreak short name & Country
+  \\ \hline \hline
+  \VWNo~(Coord.) & Volkswagen AG & \VW & Germany
+  \\ \hline
+  \ETHZNo  & Eidgen\"{o}ssische Technische Hochschule Z\"urich & \ETHZ & Switzerland
+  \\ \hline
+  \IBMNo  & IBM Research GmbH & \IBM & Switzerland
+  \\ \hline
+  \CLUJNo  & Universitatea Tehnic\u{a} din Cluj-Napoca & \CLUJ & Romania
+  \\ \hline
+  \PRAGUENo & \v{C}esk\'{e} Vysok\'{e} U\v{c}en\'{i} Technick\'{e} v Praze & \PRAGUE & Czech Republic
+  \\ \hline
+  \end{tabular}\\[20mm]
+\end{center}
+ 
+
+\begin{center}
+\begin{minipage}{0.9\linewidth}
+
+{\bf Work program topic addressed}
+
+ICT-24-2015: Robotics\\
+
+\vspace{5mm}
+
+{\bf Name of the Coordinator:} \Coordinator \\
+{\bf Email of the Coordinator:} wojciech.derendarz@volkswagen.de \\
+{\bf Faxno of the Coordinator:} +49 5361 953 02332 \\
+\end{minipage}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%TODO: remove the inputs below again before submission!!
+%\input{text/todo}
+%\input{text/section0Abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+
+\clearpage
+%\setcounter{page}{1}
+\cfoot{[\Project] \quad page \thepage~of \pageref{LastPage}}
+
+\clearpage
+
+\section{Excellence}
+% Your proposal must address a work programme topic  for this call for
+% proposals.
+% This section of your proposal will be assessed only to the
+% extent that it is relevant to that topic.
+%\input{abstract}
+\input{text/section1Overview}
+\input{text/section1Objectives}
+\input{text/section1RelationToWorkProgramme}
+\input{text/section1Concept}
+\input{text/section1Ambition}
+
+\clearpage
+
+\section{Impact}
+\label{sec:impact}
+%% Please be specific, and provide only information that applies to the
+%% proposal and its objectives. Wherever possible, use quantified
+%% indicators and targets.
+\input{text/section2Impact}
+\input{text/section2ExpectedImpacts}
+\input{text/section2Regulation}
+\clearpage
+
+\section{Implementation}
+\input{text/section3WPPersonMonthNumbers}
+\input{text/section3WPOverview}
+\input{text/section3TaskOverview}
+\input{text/section3Milestones}
+\input{text/section3Deliverables}
+\input{text/section3RiskAssessment}
+\input{text/section3BudgetOverview}
+
+\input{text/section3WPSpecification}
+\input{text/section3WPVehicle}
+\input{text/section3WPCloud}
+\input{text/section3WPPerception}
+\input{text/section3WPMapping}
+\input{text/section3WPSceneUnderstanding}
+\input{text/section3WPNavigation}
+\input{text/section3WPIntegration}
+\input{text/section3WPDisseminationExploitation}
+\input{text/section3WPManagement}
+
+\input{text/section3Management}
+\input{text/section3Consortium}
+%\input{text/section3Resources}
+
+
+\clearpage
+
+%\bibliographystyle{plainsmall} %TODO: make this work to densify the bib
+
+\bibliographystyle{plain}
+\bibliography{bib/projectBib,bib/unipr,bib/ethz,bib/utc}
+
+\clearpage
+
+\end{document}

@@ -1,0 +1,417 @@
+\usepackage{color}
+\usepackage{shading}
+\usepackage{colortbl}
+\arrayrulecolor{black} % green tables otherwise
+\let\myHeadrule\headrule
+\let\myFootrule\footrule
+\renewcommand\headrule{\color{black}\myHeadrule}
+\renewcommand\footrule{\color{black}\myFootrule}
+
+\def\putright#1{{\unskip\nobreak\hfill\penalty50\hskip2em
+  \hbox{}\nobreak\hfill \hbox{#1}\finalhyphendemerits=0 }}
+
+
+
+%%------------------------------------------------------------------
+\newcommand{\sepline}{\protect\rule{\textwidth}{0.25mm}\\}
+
+
+
+%%------------------------------------------------------------------
+\def\putright#1{{\unskip\nobreak\hfill\penalty50\hskip2em
+  \hbox{}\nobreak\hfill \hbox{#1}\finalhyphendemerits=0 }}
+
+
+%%------------------------------------------------------------------
+%\definecolor{wpLeaderCellColor}{rgb}{0.9,0.9,0.9}
+\definecolor{wpLeaderCellColor}{rgb}{0.95,0.95,0.95}
+%\newcommand{\leader}[1]{\underline{\bf#1}}
+\newcommand{\highlightCell}{\cellcolor{wpLeaderCellColor} \bf}
+\newcommand{\shadedCell}{\cellcolor{wpLeaderCellColor}}
+
+
+
+%%------------------------------------------------------------------
+\newcommand{\wpheader}[7]
+{\begin{tabular*}{\textwidth}{|p{0.75\textwidth}|p{0.1953\textwidth}|}\hline 
+\multicolumn{2}{|l|}{\highlightCell Work Package #1: #3} \\ \hline
+Activity: #4 & Start date: #2 \\ \hline
+\end{tabular*}\\[-0.5mm]
+\begin{tabular*}{\textwidth}{|p{0.12\textwidth}@{\extracolsep{\fill}}|c|c|c|c|c|c|c|c|}
+#5 \\\hline
+#6 \\\hline
+#7 \\\hline
+\end{tabular*}\\[-0.5mm]}
+
+
+
+
+%%------------------------------------------------------------------
+\newenvironment{tableBox}[1]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+\highlightCell #1
+\\
+\hline
+\parsep0pt
+}
+{
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+
+
+%%------------------------------------------------------------------
+\newenvironment{tableBox2Col}[2]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.47\textwidth}|p{0.472\textwidth}|}
+\hline
+\highlightCell #1 & \highlightCell #2
+\\
+\hline
+\parsep0pt
+}
+{
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+%%------------------------------------------------------------------
+\newenvironment{SuccessTable}[2]
+{
+\small
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.35\textwidth}|p{0.595\textwidth}|}
+\hline
+\highlightCell #1 & \highlightCell #2
+\\
+\hline
+\parsep0pt
+}
+{
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+%%------------------------------------------------------------------
+\newenvironment{RiskTable}[3]
+{
+\small
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.34\textwidth}|p{0.08\textwidth}|p{0.497\textwidth}|}
+\hline
+\highlightCell #1 & \highlightCell Prob. & \highlightCell #2 
+\\
+\hline
+\parsep0pt
+}
+{
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+
+
+%%------------------------------------------------------------------
+\newcommand{\contentBox}[1]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+{#1}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+\newcommand{\contentBoxHeader}[2]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+{#1}\\
+{#2} 
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+
+\newcommand{\headerBox}[2]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+\shadedCell {\bf #1} \putright{#2}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+
+\newcommand{\newHeaderBox}[2]
+{
+%\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+\rule{0mm}{2mm}\shadedCell {\bf #1} \putright{#2}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+\newcommand{\newHeaderBoxFewSpace}[2]
+{
+%\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+\rule{0mm}{2mm}\shadedCell {\bf #1} \putright{#2}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.6cm}
+}
+
+
+
+
+% #1 Title 
+% #2 WPNo
+% #3 start date
+% #4 Activity (RTD, MNGT)
+% #5 Leader
+\newcommand{\wptableheaderA}[5]{
+  {\small
+    \begin{tabular*}{0.99\textwidth}{|p{5.28cm}|p{3.78cm}|p{3.49cm}|p{25.2mm}|}
+      \hline
+      \shadedCell \rule{0mm}{4mm}Work Package number & \shadedCell {\bf #2} & \shadedCell Start date & \shadedCell #3 
+      \\ \hline 
+      \rule{0mm}{4mm}Work Package title & \multicolumn{3}{l|}{ {\bf #1} }
+      \\ \hline 
+      \rule{0mm}{4mm}Work Package leader & {\bf #5} & Activity & #4 
+      \\ \hline
+    \end{tabular*}\\[-0.5mm]
+  }
+}
+
+\newcommand{\wptableheaderB}[5]{
+  {\small
+    \begin{tabular*}{0.99\textwidth}{|p{5.28cm}|c|c|c|c|c|c|}
+%%%    \begin{tabular*}{0.99\textwidth}{|p{5.0cm}|c|c|c|c|c|c|p{15.0mm}|}
+      \rule{0mm}{4mm}Participant number & \VWNo & \ETHZNo & \IBMNo & \CLUJNo & \PRAGUENo &  \hfill
+      \\ \hline
+      \rule{0mm}{4mm}Short name of participant & \VW & \ETHZ & \IBM & \CLUJ & \PRAGUE & \hspace{4.58cm}
+      \\ \hline
+      \rule{0mm}{4mm}Person/months per participant &  #1 & #2  & #3 & #4 & #5 & \hfill
+      \\ \hline
+    \end{tabular*}\\[1ex]
+  }
+}
+
+\newcommand{\taskpartner}[1]{\putright{{\bf{#1}}}}
+\newcommand{\taskpartners}[2]{\putright{{\bf{#1}}, {#2}}}
+\newcommand{\delresponsible}[1]{\newline{Responsible beneficiary: {#1}}}
+
+%%%%%%%%%
+
+
+
+% \setlength{\textheight}{\textheight+1.95cm}
+\setlength{\textwidth}{\textwidth+1.2cm}
+\setlength{\topmargin}{\topmargin-1.1cm}
+\setlength{\oddsidemargin}{\oddsidemargin-0.6cm}
+\setlength{\evensidemargin}{\evensidemargin-0.6cm}
+
+
+%\definecolor{wpLeaderCellColor}{rgb}{0.9,0.9,0.9}
+%\newcommand{\leader}[1]{\underline{\bf#1}}
+%\newcommand{\highlightCell}{\cellcolor{wpLeaderCellColor} \bf}
+
+%%------------------------------------------------------------------
+
+\newenvironment{denseItemize}[0]
+{  \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+{\end{list}} 
+
+
+\newenvironment{megaDenseItemize}[0]
+{  \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{0pt}
+      \setlength{\topsep}{1pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.4em} } }
+{\end{list}}
+
+
+\newcommand{\todo}[2]{\textbf{{\color{red} [TODO for #1: #2]}}}
+
+\newcommand{\myline}[1]{\protect\rule{#1}{2mm}}
+
+
+\newenvironment{deliverables}[1]{
+\newHeaderBox{Deliverables}{}
+\begin{list}{{\bf D{#1}.\arabic{enumi}}}{
+\itemsep0mm \itemindent0mm \usecounter{enumi}\setlength{\leftmargin}{10mm}\setlength{\rightmargin}{0mm}}  
+}{\end{list}}
+
+\newcommand{\deliverablesBox}[2]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+{\bf Deliverables}
+\begin{list}{{\bf D{#1}.\arabic{enumi}}}{
+\itemsep0mm \itemindent0mm \usecounter{enumi}\setlength{\leftmargin}{10mm}\setlength{\rightmargin}{0mm}}  
+{#2}
+\end{list}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+\newenvironment{prototypes}[1]{
+\newHeaderBox{Software Protoypes to be Provided within the Consortium}{}
+\begin{list}{{\bf P{#1}.\arabic{enumi}}}{
+\itemsep0mm \itemindent0mm \usecounter{enumi}\setlength{\leftmargin}{10mm}\setlength{\rightmargin}{0mm}}  
+}{\end{list}}
+
+\newenvironment{newprototypes}{
+\begin{list}{{$\bullet$}}{
+\itemsep0mm \itemindent0mm \setlength{\leftmargin}{10mm}\setlength{\rightmargin}{0mm}}  
+}{\end{list}}
+
+
+\newenvironment{milestones}[1]{
+%\sepline
+%{\bf Milestones}
+\newHeaderBox{Milestones}{}
+\begin{list}{M{#1}.\arabic{enumi}}{
+\itemsep0mm \itemindent0mm \usecounter{enumi}\setlength{\leftmargin}{10mm}\setlength{\rightmargin}{0mm}}
+}{\end{list}}
+
+\newenvironment{keyothers}[2]{
+%\sepline
+\newHeaderBox{Key #2 Related to Tasks Addressed in \Project{}}{\bf#1}
+%{\bf List of Tasks}
+\begin{list}{\arabic{enumi}}{
+ \usecounter{enumi}
+ \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } 
+}{\end{list}}
+
+\newenvironment{keypubs}[1]{
+%\sepline
+\newHeaderBox{Key Publications Related to Tasks Addressed in \Project{}}{\bf#1}
+%{\bf List of Tasks}
+\begin{list}{\arabic{enumi}}{
+ \usecounter{enumi}
+ \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } 
+}{\end{list}}
+
+\newenvironment{tasks}[1]{
+%\sepline
+\newHeaderBox{Description of work, lead partner, and role of participants}{}
+  %{\bf List of Tasks}
+  \begin{list}{{\bf Task {#1}.\arabic{enumi}}}{
+  \usecounter{enumi}
+  \setlength{\itemsep}{1mm}
+  \setlength{\itemindent}{5mm}
+  \setlength{\leftmargin}{5mm}
+  \setlength{\rightmargin}{0mm}
+  }
+}{\end{list}}
+
+\newcommand{\tasksbox}[2]
+{
+\vspace{-0.2cm}
+\LTleft0pt
+\LTright0pt
+\begin{longtable}{|p{0.97\textwidth}|}
+\hline
+{\bf Description of work}
+  \begin{list}{{\bf Task {#1}.\arabic{enumi}}}{
+  \usecounter{enumi}
+  \setlength{\itemsep}{1mm}
+  \setlength{\itemindent}{5mm}
+  \setlength{\leftmargin}{5mm}
+  \setlength{\rightmargin}{0mm}
+  }  
+  {#2}
+  \end{list}
+\\\hline
+\end{longtable}
+\addtocounter{table}{-1}
+\vspace{-0.4cm}
+}
+
+\newenvironment{risks}{
+%\sepline
+%{\bf Risk Assessment and Problem Resolution}
+\newHeaderBox{Risk Assessment and Problem Resolution}{}
+\begin{itemize} \itemsep0mm \itemindent0mm
+}{\end{itemize}}
+
+
+\newenvironment{riskslabeled}[1]{
+%\sepline
+%{\bf Risk Assessment and Problem Resolution}
+\newHeaderBox{Risk Assessment and Problem Resolution on #1}{}
+\begin{itemize} \itemsep0mm \itemindent0mm
+}{\end{itemize}}
+
+
+
+\newcommand{\wptablefont}{ 
+%%\small 
+}
+
+\newcommand{\mosriskheader}{
+\newHeaderBox{Measures of Success, Risks, and Contingency Plans}{}
+\vspace{2mm}
+}
