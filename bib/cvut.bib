@@ -1,141 +1,582 @@
-@Book{		  unipr-argo,
-  author	= "Alberto Broggi AND Massimo Bertozzi AND Alessandra
-		  Fascioli AND Gianni Conte",
-  title		= "{Automatic Vehicle Guidance: the Experience of the ARGO
-		  Vehicle}",
-  publisher	= "World Scientific",
-  address       = "Singapore",
-  eabstract	= "/people/broggi/publications/argo.html",
-  epaper	= "/people/broggi/publications/argo.pdf",
-  month		= apr,
-  note		= "ISBN~9810237200",
-  year		= 1999
+@InProceedings{Cerman-Hlavac-ICPR-2012,
+  key =		 {Cerman-Hlavac-ICPR-2012},
+  author =	 {Cerman, Luk{\'a}{\v s} and Hlav{\'a}{\v c}, V{\'a}clav},
+  title =	 {Tracking with Context as a Semi-supervised Learning and
+                  Labeling Problem},
+  year =	 {2012},
+  pages =	 {2124--2127},
+  booktitle =	 {ICPR '12: Proceedings of 21st International Conference on
+                  Pattern Recognition},
+  isbn =	 {978-4-9906441-0-9},
+  book_pages =	 {3768},
+  month =	 {November},
+  day =		 {11--15},
+  venue =	 {Tsukuba International Congress Center, Tsukuba, Japan},
+  annote =	 {It is suggested how a Markov random field can be used for
+                  object tracking with context information. The tracking is
+                  formulated as a two layer process. In the first phase, the
+                  image is represented by a set of feature points which are
+                  tracked by a standard tracker. In the second phase, the
+                  proposed semi-supervised learning and labeling algorithm is
+                  used to label the points to three classes -- object,
+                  background and companion. The object state (pose) is defined
+                  by the set of points labeled as the object. The companion
+                  represents the object context and contains non-object points
+                  with a motion similar to the motion of the object. As
+                  initialization, labels of the object points only are
+                  provided by a user in the very first frame. The appearance
+                  and motion models of the three classes and the labels of the
+                  remaining points in the whole video sequence are estimated
+                  in a GrabCut fashion. We show that the use of the companion
+                  class together with a 3D (space-time) Markov random field
+                  helps to identify object points behind full occlusions or
+                  under strong appearance changes.},
+  keywords =	 {Motion, Tracking and Video Analysis, Classification and
+                  Clustering},
 }
 
-@INPROCEEDINGS{ unipr-iv2001,
-  AUTHOR  = "Alberto Broggi AND Virginio Cantoni AND Ugo Vallone AND Alessandra Fascioli",
-  TITLE   = "{Snowcat Track Detection in Snowy Environments}",
-  BOOKTITLE = "Procs.~IEEE Intelligent Vehicles Symposium 2001",
-  YEAR    = "2001",
-  ADDRESS = "Tokyo, Japan",
-  MONTH   = may,
-  eabstract = "/people/broggi/publications/iv2001.html",
-  epaper    = "/people/broggi/publications/iv2001.pdf",
-  PAGES   = "19-24"
+@Article{Zimmermann-PAMI2009,
+  author =	 {Zimmermann, Karel and Matas, Ji{\v r}{\'\i} and Svoboda,
+                  Tom{\'a}{\v s}},
+  title =	 {Tracking by an Optimal Sequence of Linear Predictors},
+  year =	 {2009},
+  month =	 {April},
+  pages =	 {677-692},
+  journal =	 {IEEE Transactions on Pattern Analysis and Machine
+                  Intelligence},
+  issn =	 {0162-8828},
+  volume =	 {31},
+  number =	 {4},
+  annote =	 {We propose a learning approach to tracking explicitly
+                  minimizing the computational complexity of the tracking
+                  process subject to user-defined probability of failure
+                  (loss-of-lock) and precision. The tracker is formed by a
+                  Number of Sequences of Learned Linear Predictors
+                  (NoSLLiP). Robustness of NoSLLiP is achieved by modeling the
+                  object as a collection of local motion predictors --- object
+                  motion is estimated by the outlier-tolerant Ransac algorithm
+                  from local predictions. Efficiency of the NoSLLiP tracker
+                  stems from (i) the simplicity of the local predictors and
+                  (ii) from the fact that all design decisions - the number of
+                  local predictors used by the tracker, their computational
+                  complexity (ie the number of observations the prediction is
+                  based on), locations as well as the number of Ransac
+                  iterations are all subject to the optimization (learning)
+                  process. All time-consuming operations are performed during
+                  the learning stage - tracking is reduced to only a few
+                  hundreds integer multiplications in each step. On PC with
+                  1xK8 3200+, a predictor evaluation requires about 30
+                  microseconds. The proposed approach is verified on
+                  publicly-available sequences with approximately 12000 frames
+                  with ground-truth. Experiments demonstrates, superiority in
+                  frame rates and robustness with respect to the SIFT
+                  detector, Lucas-Kanade tracker and other trackers.},
+  keywords =	 {Image processing and computer vision, Scene analysis,
+                  Tracking},
+  psurl =	 { <a
+                  href="ftp://cmp.felk.cvut.cz/pub/cmp/articles/svoboda/Zimmermann-PAMI2009.pdf">[PDF]</a> },
+  www =		 {http://cmp.felk.cvut.cz/demos/Tracking/linTrack/},
+}
+
+@inproceedings{Prisacariu-ICPR-2010,
+  author =	 {Prissacariu, Victor Adrian and Timofte, Radu and Zimmermann,
+                  Karel and Reid, Ian and Van Gool, Luc},
+  title =	 {Integrating Object Detection with {3D} Tracking Towards a
+                  Better Driver Assistance System},
+  booktitle =	 {20th International Conference on Pattern Recognition},
+  pages =	 {3344-3347},
+  venue =	 {Istambul, Turkey},
+  isbn =	 {978-0-7695-4109-9},
+  issn =	 {1051-4651},
+  book_pages =	 {4200},
+  keywords =	 {traffic signs, driver assistance},
+  month =	 {August},
+  day =		 {23-26},
+  year =	 {2010},
+  annote =	 {An input video must be processed in real-time for driver
+                  assistance purposes. We focus on achieving real-time
+                  performance on frame-level detect ion and recognition, as
+                  well in 3D pose tracking of the detected traffic signs. In
+                  this way we have not only the detected traffic signs facing
+                  the car but also their relative orientation, their 3D
+                  poses.},
+}
+
+@Article{Zimmermann-Hurych-Svoboda-PAMI2014,
+  author =	 {Zimmermann, Karel and Hurych, David and Svoboda, Tom{\'a}{\v
+                  s}},
+  title =	 {Non-Rigid Object Detection with Local Interleaved Sequential
+                  Alignment (LISA)},
+  c_title =	 {Detekce deformovan{\'y}ch objekt\accent23u pomoc{\'\i}
+                  lok{\'a}ln{\'\i}ho sekven{\v c}n{\'\i}ho
+                  zarovn{\'a}v{\'a}n{\'\i} p{\v r}{\'\i}znak\accent23u},
+  year =	 {2014},
+  month =	 {April},
+  pages =	 {731-743},
+  journal =	 {Pattern Analysis and Machine Intelligence, IEEE Transactions
+                  on},
+  issn =	 {0162-8828},
+  volume =	 {36},
+  number =	 {4},
+  annote =	 {This paper shows that the successively evaluated features
+                  used in a sliding window detection process to decide about
+                  object presence/absence also contain knowledge about object
+                  deformation. We exploit these detection features to estimate
+                  the object deformation. Estimated deformation is then
+                  immediately applied to not yet evaluated features to align
+                  them with the observed image data. In our approach, the
+                  alignment estimators are jointly learned with the
+                  detector. The joint process allows for the learning of each
+                  detection stage from less deformed training samples than in
+                  the previous stage. For the alignment estimation we propose
+                  regressors that approximate non-linear regression functions
+                  and compute the alignment parameters extremely fast. },
+  keywords =	 {Non-rigid object detection, alignment, regression,
+                  exploiting features, real-time, waldboost, sliding window,
+                  sequential decision process},
+  doi =		 {10.1109/TPAMI.2013.171},
+  ut_isi =	 {: identifier of the publication in ISI (WoS) },
+  psurl =	 { <a
+                  href="ftp://cmp.felk.cvut.cz/pub/cmp/articles/svoboda/TPAMI-2012-08-0645.R2_Zimmermann.pdf">[PDF] - revised version</a> },
+  www =		 { http://dx.doi.org/10.1109/TPAMI.2013.171 },
+}
+
+@InProceedings{Heck-IV2013,
+  IS =		 { zkontrolovano 24 Jan 2014 },
+  UPDATE =	 { 2013-11-21 },
+  author =	 {Heck, Philip and Bellin, Jan and Matou{\v s}ek, Martin and
+                  Wonneberger, Stefan and Sychrovsk{\'y}, Ond{\v r}rej and
+                  {\v S}{\'a}ra, Radim and Maurer, Markus},
+  title =	 {Collision Mitigation for Crossing Traffic in Urban
+                  Scenarios},
+  year =	 {2013},
+  pages =	 {559-566},
+  booktitle =	 {IV 2013: Proceedings of IEEE Intelligent Vehicles Symposium},
+  isbn =	 {978-1-4673-2754-1},
+  book_pages =	 {1445},
+  month =	 {June},
+  day =		 {23-26},
+  venue =	 {Gold Coast, Australia},
+  annote =	 {Current collision mitigation systems focus on rear end
+                  collisions. To address the full spectrum of real world
+                  accidents, these systems will have to be enhanced to cover
+                  more traffic situations. Vehicle to vehicle accidents in
+                  crossing traffic situations make up around 25% of accidents
+                  in Germany. This paper discusses the requirements and
+                  differences compared to rear-end collisions. Presented here
+                  is an action concept that takes into account how the impact
+                  configuration is changed by breaking the host (impacting)
+                  vehicle. Based on this concept the requirements for the
+                  detection of crossing traffic were derived. These
+                  requirements were met by developing a video system based on
+                  a monocular wide field of view camera. It is further shown
+                  how this action concept and sensor were integrated into a
+                  demonstrator vehicle and evaluated in full scale testing. },
+  keywords =	 {driver assistance system, collision mitigation, image
+                  processing},
+  doi =		 {10.1109/IVS.2013.6629526},
+}
+
+@InProceedings{Sara3DIM05,
+  author =	 {{\v S}{\'a}ra, Radim and Okatani, Ikuko Shimizu and
+                  Sugimoto, Akihiro},
+  title =	 {Globally Convergent Range Image Registration by Graph Kernel
+                  Algorithm},
+  year =	 {2005},
+  pages =	 {377-384},
+  booktitle =	 {3DIM 2005: Proceedings of 5th International Conference on
+                  3-D Digital Imaging and Modeling},
+  isbn =	 {0-7695-2327-7},
+  book_pages =	 {598},
+  month =	 {June},
+  day =		 {13-16},
+  venue =	 {Ottawa, Canada},
+  annote =	 {Automatic range image registration without any knowledge of
+                  the viewpoint requires identification of common regions
+                  across different range images and then establishing point
+                  correspondences in these regions. We formulate this as a
+                  graph-based optimization problem. More specifically, we
+                  define a graph in which each vertex represents a putative
+                  match of two points, each edge represents binary consistency
+                  decision between two matches, and each edge orientation
+                  represents match quality from worse to better putative
+                  match. Then strict sub-kernel defined in the graph is
+                  maximized. The maximum strict sub-kernel algorithm enables
+                  us to uniquely determine the largest consistent matching of
+                  points. To evaluate the quality of a single match, we employ
+                  the histogram of triple products that are generated by all
+                  surface normals in a point neighborhood. Our experimental
+                  results show the effectiveness of our method for coarse
+                  range image registration.},
+  keywords =	 {computer vision, computer graphics, range image,
+                  registration},
+}
+
+@InProceedings{Bujnak-ICCV2007,
+  author =	 {Buj{\v n}{\'a}k, Martin and {\v S}{\'a}ra, Radim},
+  title =	 {A Robust Graph-Based Method for The General Correspondence
+                  Problem Demonstrated on Image Stitching},
+  year =	 {2007},
+  pages =	 {8},
+  booktitle =	 {ICCV 2007: Proceedings of Eleventh IEEE International
+                  Conference on Computer Vision},
+  isbn =	 {978-1-4244-1631-8},
+  book_pages =	 {2240},
+  month =	 {October},
+  day =		 {14-20},
+  venue =	 {Rio de Janeiro, Brazil},
+  annote =	 {We pose robust matching with parametric and non-parametric
+                  constraints as the problem of finding a stable independent
+                  set (SIS) in an oriented graph whose vertices are all
+                  possible correspondences, whose edges capture the structure
+                  of the constraints and whose edge orientation represents
+                  pairwise comparison 'is better' based on correspondence
+                  quality, including the uncertainty of this comparison. We
+                  show SIS possess properties of both robustness and weak
+                  optimality. The main contribution of this paper is
+                  algorithmic speedup that results from exploiting the
+                  dependence between the standard uniqueness constraint and
+                  the parametric constraint. The general theory is
+                  demonstrated on the example of image stitching using
+                  homography model. The algorithm needs at most kN^2 calls of
+                  a procedure testing if two ellipse correspondences are
+                  consistent with a general homography. The previous known SIS
+                  algorithm needed $O(N^4)$ tests. Experiments show the method
+                  gives good results and is fast in practice with k ~ 0.3.},
+  keywords =	 {computer vision, stereo, matching, graph stablity},
+  psurl =	 { <a
+                  href="ftp://cmp.felk.cvut.cz/pub/cvl/articles/bujnak/Bujnak-Sara-ICCV2007.pdf">[PDF, 1792 KB]</a> },
+  www =		 { <a href="http://cmp.felk.cvut.cz/~bujnam1"> Martin Bujnak
+                  </a>, <a href="http://cmp.felk.cvut.cz/~sara"> Radim Sara
+                  </a>},
+}
+
+@Article{Tylecek-IJVR-2010,
+  author =	 {Radim Tyle{\v c}ek and Radim {\v S}{\'a}ra},
+  title =	 {Refinement of Surface Mesh for Accurate Multi-View
+                  Reconstruction},
+  year =	 {2010},
+  month =	 {March},
+  pages =	 {45-54},
+  journal =	 {International Journal of Virtual Reality},
+  issn =	 {1081-1451},
+  volume =	 {9},
+  number =	 {1},
+  annote =	 {In this paper we propose a pipeline for accurate 3D
+                  reconstruction from multiple images that deals with some of
+                  the possible sources of inaccuracy present in the input
+                  data. Namely, we address the problem of inaccurate camera
+                  calibration by including a method adjusting the camera
+                  parameters in a global structure-and-motion problem, which
+                  is solved with a depth map for representation that is
+                  suitable to large scenes. Secondly, we take the triangular
+                  mesh and calibration improved by the global method in the
+                  first phase to refine the surface both geometrically and
+                  radiometrically. Here we propose surface energy which
+                  combines photoconsistency with contour matching and minimize
+                  it with a gradient descent method. Our main contribution
+                  lies in effective computation of the gradient that naturally
+                  regularization and data terms by employing scale space
+                  approach. The results are demonstrated on standard
+                  high-resolution datasets and a complex outdoor scene. },
+  keywords =	 {Structure from motion, dense 3D reconstruction, multi-view,
+                  mesh refinement},
+  psurl =	 {<a
+                  href="ftp://cmp.felk.cvut.cz/pub/cmp/articles/tylecek/Tylecek-IJVR2010.pdf">[PDF, 2 MB]</a>, <a href="http://www.ijvr.org/papers-2010-9-1.html">at Publisher</a>},
+}
+
+@Article{Torii-Havlena-IJCV-2011,
+  author =	 {Torii, Akihiko and Havlena, Michal and Pajdla, Tom{\' a}{\v
+                  s}},
+  title =	 {Omnidirectional Image Stabilization for Visual Object
+                  Recognition},
+  year =	 {2011},
+  month =	 {January},
+  pages =	 {157-174},
+  journal =	 {International Journal of Computer Vision},
+  issn =	 {0920-5691},
+  volume =	 {91},
+  number =	 {2},
+  annote =	 {In this paper, we present a pipeline for camera pose and
+                  trajectory estimation, and image stabilization and
+                  rectification for dense as well as wide baseline
+                  omnidirectional images. The proposed pipeline transforms a
+                  set of images taken by a single hand-held camera to a set of
+                  stabilized and rectified images augmented by the computed
+                  camera 3D trajectory and reconstruction of feature points
+                  facilitating visual object recognition. The paper
+                  generalizes previous works on camera trajectory estimation
+                  done on perspective images to omnidirectional images and
+                  introduces a new technique for omnidirectional image
+                  rectification that is suited for recognizing people and cars
+                  in images. The performance of the pipeline is demonstrated
+                  on real image sequences acquired in urban as well as natural
+                  environments.},
+  keywords =	 {Omnidirectional vision, Structure from motion, Image
+                  rectification, Object recognition},
+  psurl =	 {<a
+                  href="http://www.springerlink.com/content/f6536778620783r7/fulltext.pdf">[10.1007/s11263-010-0350-x.pdf]</a>},
+}
+
+@Article{Kukelova-Pajdla-PAMI-2011,
+  author =	 {Kukelova, Zuzana and Pajdla, Tom{\' a}{\v s}},
+  title =	 {A Minimal Solution to Radial Distortion Autocalibration},
+  journal =	 {{IEEE} Transactions on Pattern Analysis and Machine
+                  Intelligence},
+  volume =	 {33},
+  number =	 {12},
+  year =	 {2011},
+  month =	 {December},
+  issn =	 {0162-8828},
+  pages =	 {2410-2422},
+  keywords =	 {minimal problems, radial distortion, Gr{\" o}bner bases,
+                  polynomial eigenvalue problems},
+  psurl =	 {http://dx.doi.org/10.1109/TPAMI.2011.86},
+  annote =	 {Simultaneous estimation of radial distortion, epipolar
+                  geometry and relative camera pose can be formulated as a
+                  minimal problem and solved from a minimal number of image
+                  points. Finding the solution to this problem leads to
+                  solving a system of algebraic equations. In this paper we
+                  provide two different solutions to the problem of estimating
+                  radial distortion and epipolar geometry from eight point
+                  correspondences in two images. Unlike previous algorithms,
+                  which were able to solve the problem from nine
+                  correspondences only, we enforce the determinant of the
+                  fundamental matrix be zero. This leads to a system of eight
+                  quadratic and one cubic equations in nine variables. We
+                  first simplify this system by eliminating six of these
+                  variables and then solve the system by two alternative
+                  techniques. The first one is based on the Gr\"{o}bner basis
+                  method and the second one on the polynomial eigenvalue
+                  computation. We demonstrate that our solutions are
+                  efficient, robust and practical by experiments on synthetic
+                  and real data.},
+}
+
+@Article{Kukelova-Bujnak-Pajdla-PAMI-2012,
+  author =	 {Kukelova, Zuzana and Bujnak, Martin and Pajdla, Tom{\' a}{\v
+                  s}},
+  title =	 {Polynomial Eigenvalue Solutions to Minimal Problems in
+                  Computer Vision},
+  journal =	 {{IEEE} Transactions on Pattern Analysis and Machine
+                  Intelligence},
+  year =	 {2012},
+  volume =	 {34},
+  pages =	 {1381-1393},
+  number =	 {7},
+  month =	 {July},
+  annote =	 {We present a method for solving systems of polynomial
+                  equations appearing in computer vision. This method is based
+                  on polynomial eigenvalue solvers and is more straightforward
+                  and easier to implement than the state-of-the-art Grobner
+                  basis method since eigenvalue problems are well studied,
+                  easy to understand, and efficient and robust algorithms for
+                  solving these problems are available. We provide a
+                  characterization of problems that can be efficiently solved
+                  as polynomial eigenvalue problems (PEPs) and present a
+                  resultant-based method for transforming a system of
+                  polynomial equations to a polynomial eigenvalue problem. We
+                  propose techniques that can be used to reduce the size of
+                  the computed polynomial eigenvalue problems. To show the
+                  applicability of the proposed polynomial eigenvalue method,
+                  we present the polynomial eigenvalue solutions to several
+                  important minimal relative pose problems.},
+  issn =	 {0162-8828},
+  keywords =	 {Structure from motion, relative camera pose, minimal
+                  problems, polynomial genvalue problems.},
+  psurl =	 {http://dx.doi.org/10.1109/TPAMI.2011.230},
+  ut_isi =	 {000304138300010},
+}
+
+@InProceedings{Navara-AMOS-2013,
+  author =	 {Navara, Mirko and Matou{\v s}ek, Martin and Drbohlav, Ond{\v
+                  r}ej},
+  title =	 {Fusion of telescopic and {Doppler} radar data},
+  year =	 {2014},
+  booktitle =	 {Proceedings of the Advanced Maui Optical and Space
+                  Surveillance Technologies Conference},
+  issn =	 {2152-4629},
+  month =	 {September},
+  day =		 {9-12},
+  venue =	 {Kihei, Hawaii, US},
+  annote =	 {The most usual ways of observation of satellites and space
+                  debris and measur ement of their orbits are telescopic
+                  images, radar reflections, laser measurements. We use two of
+                  these three modalities, we combine telescopic images with
+                  response of Doppler radars. We u se single images from a
+                  terrestrial telescope. Our radar is passive, we receive the
+                  signal of a distant terrestrial transmitter. The receiver
+                  has a non-directional antenna and only Doppler shift is
+                  employed to gain information about an object's movement. Due
+                  to sensitivity limitati ons, our approach is applicable to
+                  large objects (RCS 5 m2 ) at distances 2000 km. Our method
+                  requires simultaneous detections by a telescope and a radar
+                  during the same fly-over, not nec essarily at exactly the
+                  same time.},
+  keywords =	 {Doppler radar, orbit determination, data fusion},
+  psurl =	 {<a
+                  href="http://www.amostech.com/TechnicalPapers/2014/Poster/NAVARA.pdf">[Paper in online proceedings, pdf]</a>},
+  www =		 {http://amostech.com},
+}
+
+@Article{Kubelka-JFR2014,
+  author =	 {Kubelka, Vladim{\'\i}r and Oswald, Lorenz and Pomerleau,
+                  Fran{\c c}ois and Colas, Francis and Svoboda, Tom{\'a}{\v s}
+                  and Reinstein, Michal},
+  title =	 {Robust Data Fusion of Multi-modal Sensory Information for
+                  Mobile Robots},
+  year =	 { 2015 },
+  month =	 { June },
+  pages =	 { 447-473 },
+  journal =	 {Journal of Field Robotics},
+  issn =	 { 1556-4959 },
+  volume =	 { 32 },
+  number =	 { 4 },
+  annote =	 {Urban Search and Rescue missions for mobile robots require
+                  reliable state estimation systems resilient to conditions
+                  given by the dynamically changing environment. We design and
+                  evaluate a data fusion system for localization of a mobile
+                  skid-steer robot intended for USAR missions. We exploit a
+                  rich sensor suite including both proprioceptive (inertial
+                  measurement unit and tracks odometry) and exteroceptive
+                  sensors (omnidirectional camera and rotating laser
+                  rangefinder). To cope with the specificities of each sensing
+                  modality (such as significantly differing sampling
+                  frequencies), we introduce a novel fusion scheme based on
+                  Extended Kalman filter for 6DOF orientation and position
+                  estimation. We demonstrate the performance on field tests of
+                  more than 4.4km driven under standard USAR conditions. Part
+                  of our datasets include ground truth positioning; indoor
+                  with a Vicon motion capture system and outdoor with a Leica
+                  theodolite tracker. The overall median accuracy of
+                  localization - achieved by combining all the four modalities
+                  - was 1.2{\%} and 1.4{\%} of the total distance traveled,
+                  for indoor and outdoor environments respectively. To
+                  identify the true limits of the proposed data fusion we
+                  propose and employ a novel experimental evaluation procedure
+                  based on failure case scenarios. This way we address the
+                  common issues like: slippage, reduced camera field of view,
+                  limited laser rangefinder range, together with moving
+                  obstacles spoiling the metric map. We believe such
+                  characterization of the failure cases is a first step
+                  towards identifying the behavior of state estimation under
+                  such conditions. We release all our datasets to the robotics
+                  community for possible benchmarking.},
+  keywords =	 {perception, position estimation, exploration},
+  doi =		 { 10.1002/rob.21535 },
+  ut_isi =	 {},
+  scopus =	 {},
+  www =
+                  {https://sites.google.com/site/kubelvla/public-datasets/nifti-zurich-2013},
+}
+
+@inproceedings{zimmermann-icra2014,
+  author =	 {Zimmermann, Karel and Zuz{\' a}nek, Petr and Reinstein,
+                  Michal and Hlav{\' a}{\v c}, V{\' a}clav},
+  title =	 {Adaptive Traversability of Unknown Complex Terrain with
+                  Obstacles for Mobile Robots},
+  year =	 {2014},
+  pages =	 {5177-5182},
+  booktitle =	 {ICRA2014: Proceedings of 2014 IEEE International Conference
+                  on Robotics and Automation},
+  isbn =	 {978-1-4799-3684-7},
+  issn =	 {1050-4729},
+  book_pages =	 {6815},
+  month =	 {June},
+  day =		 {1-7},
+  venue =	 {Hong Kong, China},
+  annote =	 {In this paper we introduce the concept of Adaptive
+                  Traversability (AT), which we define as means of autonomous
+                  motion control adapting the robot morphology config uration
+                  of articulated parts and their compliances to traverse
+                  unknown complex terrain wit h obstacles in an optimal
+                  way. We verify this concept by proposing a reinforcement
+                  learnin g based AT algorithm for mobile robots operating in
+                  such conditions. We demonstrate the fu nctionality by
+                  training the AT algorithm under lab conditions on simple
+                  EUR-pallet obstacl es and then testing it successfully on
+                  natural obstacles in a forest. For quantitative eva luation
+                  we define a metrics based on comparison with expert
+                  operator. Exploiting the propo sed AT algorithm
+                  significantly decreases the cognitive load of the operator.},
+  keywords =	 { Search and Rescue Robots, Climbing robots, Learning and
+                  Adaptive Systems},
+  note =	 {CD-ROM},
+  project =	 {GACR 14-13876S, SGS13/142/OHK3/2T/13, FP7-ICT-609763 TRADR,
+                  TACR TE01020197},
+  www =		 {http://www.icra2014.com/},
 }
 
 
-@InProceedings{unipr-iv2004-terramax,
-  author = "Umit Ozguner AND Keith A. Redmill AND Alberto Broggi",
-  title  = "{Team TerraMax and the DARPA Grand Challenge: A General Overview}",
-  booktitle = "Procs.~IEEE Intelligent Vehicles Symposium 2004",
-  year  = 2004,
-  address = "Parma, Italy",
-  pages         = "232--237",
-  epaper        = "/people/bertozzi/pap/cr/iv2004-terramax.pdf",
-  month  = jun
+@InProceedings{Sara-ECCV02,
+  author =	 {{\v S}{\'a}ra, Radim},
+  title =	 {Finding the Largest Unambiguous Component of Stereo
+                  Matching},
+  year =	 {2002},
+  pages =	 {900-914},
+  booktitle =	 {Proceedings 7th European Conference on Computer Vision},
+  isbn =	 {3-540-43744-4},
+  book_pages =	 {919},
+  month =	 {May},
+  day =		 {28-31},
+  venue =	 {Copenhagen, Denmark},
 }
 
-@Article{ unipr-jfr2006-terramax,
-  author        = "Deborah Braid AND Alberto Broggi AND Gary Schmiedel",
-  title         = "{The TerraMax Autonomous Vehicle}",
-  journal       = "{Journal of Field Robotics}",
-  year          = 2006,
-  month         = sep,
-  number        = "9",
-  volume        = "23",
-  epaper = "/people/broggi/publications/jfr-terramax.pdf",
-  pages         = "693--708"
+@InProceedings{DobiasICCV-LDRMC2011,
+  author =	 {Dobia{\v s}, Martin and {\v S}{\'a}ra, Radim},
+  title =	 {Real-Time Global Prediction for Temporally Stable Stereo},
+  booktitle =	 {Proceedings of the 1st International Workshop on Live Dense
+                  Reconstruction from Moving Cameras at 2011 IEEE
+                  International Conference on Computer Vision},
+  year =	 {2011},
+  book_pages =	 {2204},
+  pages =	 {704-707},
+  venue =	 {Barcelona, Spain},
+  month =	 {November},
+  day =		 {12},
+  annote =	 {We present a method for calculation of disparity maps from
+                  stereo sequences. Disparity map from previous frame is first
+                  transferred to the new frame using estimated motion of the
+                  calibrated stereo rig. The predicted disparities are
+                  validated for the new frame and areas where prediction
+                  failed are matched with a traditional stereo matching
+                  algorithm. This method produces very fast and temporally
+                  stable stereo matching suitable for real-time applications
+                  even on non-parallel hardware.},
+  keywords =	 {computer vision, stereoscopic vision, matching, real-time
+                  processing},
+  isbn =	 {978-1-4673-0061-2},
+  url =
+                  {http://cmp.felk.cvut.cz/ftp/articles/sara/Dobias-LDRMC-ICCV2001.pdf},
+  authorship =	 {80-20},
 }
 
-@Article{ unipr-iv2011-viac,
- author = "Alberto Broggi AND Andrea Cappalunga AND Claudio Caraffi AND Stefano Cattani AND Stefano Ghidoni AND Paolo Grisleri AND Pier Paolo Porta AND Matteo Posterli AND Paolo Zani",
- title  = "{TerraMax Vision at the Urban Challenge 2007}",
- journal       = "IEEE Trans.~on Intelligent Transportation Systems",
- publisher     = "IEEE Press",
- year          = "2010",
- volume        = "11",
- number        = "1",
- month         = mar,
- epaper        = "/people/bertozzi/pap/cr/tette2008-uc.pdf",
- eprint        = "doi:10.1109/TITS.2010.2041231",
- pages         = "194--205"
+@InProceedings{Sychrovsky-FPL2013,
+  author =	 {Sychrovsk{\'y}, Ond{\v r}ej and Matou{\v s}ek, Martin and
+                  {\v S}{\'a}ra, Radim},
+  title =	 {{FPGA}-Accelerated Sliding Window Classifier with Structured
+                  Features},
+  year =	 {2013},
+  pages =	 {1-4},
+  booktitle =	 {FPL 2013: Proceedings of the 23rd International Conference
+                  on Field Programmable Logic and Applications},
+  isbn =	 {978-1-4799-0004-6},
+  book_pages =	 {570},
+  month =	 {September},
+  day =		 {2-4},
+  venue =	 {Porto, Portugal},
+  annote =	 {Certain classification tasks in computer vision require the
+                  classifier response to be computed in every pixel of an
+                  image. When combined with large, complex features, it
+                  becomes challenging to build such a classifier on a standard
+                  PC architecture and achieve real-time performance. We
+                  present an FPGA implementation of a car wheel classifier
+                  response computation, built as an instantiation of a generic
+                  classification system. An interesting optimization problem
+                  concerning performance and speed is addressed. Our
+                  implementation is running in real-time as a part of a more
+                  complex collision mitigation system based on car detection
+                  in video data.},
+  keywords =	 {computer vision, object detection, FPGA},
+  doi =		 {10.1109/FPL.2013.6645560},
 }
-
-@Article{         unipr-profusion-journal-2006,
-  author        = "Alberto Broggi AND Pietro Cerri",
-  title         = "{A radar driven fusion with vision for vehicle detection}",
-  journal       = "PReVENT Fusion Forum e-Journal",
-  year          = "2006",
-  volume        = 1,
-  month         = sep,
-  epaper        = "/people/bertozzi/pap/cr/profusion.journal.2006.pdf",
-  pages         = "17--18"
-}
-
-@Misc{		  unipr-2ws_site,
-  author	= "{2WideSense Website}",
-  title		= "{2WideSense EU Project}",
-  note		= "Available at \texttt{http://www.2wide-sense.eu}",
-}
-
-@MISC{unipr-Doshi09onthe,
-    author = {Anup Doshi and Mohan Manubhai Trivedi},
-    title = {On the Roles of Eye Gaze and Head Dynamics in Predicting Driver’s Intent to Change Lanes},
-    year = {2009}
-}
-
-@INPROCEEDINGS{unipr-5274065,
-author={Guo Yu and Xiao Xiao and Jian Bai},
-booktitle={Electronic Measurement Instruments, 2009. ICEMI '09. 9th International Conference on},
-title={Analysis of vehicle surroundings and driver status from video stream based on a single PAL camera},
-year={2009},
-month={Aug},
-pages={4-363-4-367},
-keywords={Bayes methods;cameras;computer vision;driver information systems;face recognition;image classification;image colour analysis;object detection;pose estimation;road accidents;road vehicles;video signal processing;video streaming;Bayes classification;driver distraction;driver fatigue;driver information system;driver viewing scene;eye detection;eye status information;face detection;face pose information;machine vision system;object localizing algorithm;panoramic annular lens camera;road accident;single PAL camera;skin color;template projection;vehicle object detection;vehicle surrounding analysis;video stream;Accidents;Cameras;Face detection;Fatigue;Layout;Lenses;Machine vision;Streaming media;Vehicle detection;Vehicle driving;PAL;eyes detection;face detection;object detection},
-doi={10.1109/ICEMI.2009.5274065},}
-
-@INPROCEEDINGS{unipr-4640888,
-author={Kishimoto, Y. and Oguri, K.},
-booktitle={Vehicular Electronics and Safety, 2008. ICVES 2008. IEEE International Conference on},
-title={A modeling method for predicting driving behavior concerning with driver #x2019;s past movements},
-year={2008},
-month={Sept},
-pages={132-136},
-keywords={Markov processes;autoregressive processes;behavioural sciences;driver information systems;road accidents;road safety;autoregressive hidden Markov model;driver past movements;driving behavior prediction;driving safety support systems;human's behavior;Automobiles;Bayesian methods;Driver circuits;Graphical models;Hidden Markov models;Predictive models;Road accidents;Safety;Vehicle dynamics;Vehicles},
-doi={10.1109/ICVES.2008.4640888},}
-
-@ARTICLE{unipr-4114350,
-author={Trivedi, M.M. and Gandhi, T. and McCall, J.},
-journal={Intelligent Transportation Systems, IEEE Transactions on},
-title={Looking-In and Looking-Out of a Vehicle: Computer-Vision-Based Enhanced Vehicle Safety},
-year={2007},
-month={March},
-volume={8},
-number={1},
-pages={108-120},
-keywords={automobiles;computer vision;driver information systems;road safety;road traffic;automobiles;computer-vision-based enhanced vehicle safety;driver-support systems;sensory system;traffic safety;Accidents;Automobiles;Computer vision;Injuries;Road vehicles;Robot vision systems;Vehicle detection;Vehicle driving;Vehicle dynamics;Vehicle safety;Active safety;driver-support systems;intelligent vehicles;real-time machine-vision systems},
-doi={10.1109/TITS.2006.889442},
-ISSN={1524-9050},}
-
-@InProceedings{  unipr-iav2010-braive,
-  author = "Paolo Grisleri AND Isabella Fedriga",
-  title  = "{The BRAiVE platform}",
-  booktitle = "Procs.~7th IFAC Symposium on Intelligent Autonomous Vehicles",
-  year  = 2010,
-  epaper = "/people/bertozzi/pap/cr/iav2010-braive.pdf",
-  eprint        = "doi:10.3182/20100906-3-IT-2019.00086",
-  pages  = "497--502",
-  address = "Lecce, Italy",
-  month  = sep
-}
-
-@MISC{unipr-Bertozzi_equipmentand,
-    author = {Massimo Bertozzi and Alberto Broggi and Elena Cardarelli and Stefano Cattani and Maria Chiara Laghi},
-    title = {EQUIPMENT AND CAPABILITIES OF THE VEHICLES FOR THE VISLAB INTERCONTINENTAL AUTONOMOUS CHALLENGE},
-    year = {2012}
-}
-
-
-
-
