@@ -1,0 +1,184 @@
+% !TEX root = ../proposal.tex
+
+%\subsubsection{\WPMapping: \WPMappingTitle}
+\paragraph{\WPMapping: \WPMappingTitle \\}
+
+{\noindent\wptablefont
+\label{wpmapping}
+
+\wptableheaderA{\WPMappingTitle}{\WPMapping}{M1}{RTD}{\ETHZ}
+\wptableheaderB{\WPMappingVW}{\WPMappingETHZ}{\WPMappingIBM}{\WPMappingCLUJ}{\WPMappingPRAGUE}
+
+\headerBox{Objectives}{}
+%The goals of this package is to provide robust and reliable vision-based metric localization for uninterrupted long-term operation.
+The goal of this work package is to provide a compact, customized and metrically accurate map with which vehicles can localize themselves reliably during uninterrupted long-term operations. In a novel approach, the map shall be seen as a continuously integrated, permanent entity that is being curated for indefinite lifespans. For this, an offline mapping framework will be developed that allows integrating and managing mapping data on a large scale and over long times. Both semantically ignorant data such as sparse feature-based landmarks as well as semantic data (lane markings, traffic signs, etc.) will be incorporated into the lifelong map and kept up-to-date in order to represent an environment changing both in appearance and structure over time. %The further goal is to generate a knowledge representation structure that allows to consistently represent and manage all kinds of data, both metric and semantic -- and allows for the seamless exchange thereof between vehicles and the server backend. 
+The key objectives include:
+\begin{denseItemize}
+%\item \textbf{Acquiring raw and/or pre-processed sensor data from different vehicles}
+\item Integrating sensor data and semantic objects into a consistent long-term map
+\item Highly-accurate metric localization on the vehicles
+\item Compilation of complex semantic products
+\item Long-term map management and summarization
+
+%\item \textbf{Lifelong calibration}
+\end{denseItemize}
+
+\begin{tasks}{\WPMappingNo}
+\label{tasks:maloc}
+%\item  {\bf Online localization using vision}
+%  \taskpartners{\todo{}}{all other partners}
+%  Pose estimation based on sparse landmark.
+%\item  {\bf Appearance based localization}
+%Development of an appearance based localization system, where, based on the current observations, a prediction is made on what appearances of landmarks will be visible in the next iteration. This will make localization more precise and reliable (because much fewer outliers and garbage in the data-association stage) and most of all, much more efficient.
+
+%Input: sparse map, pose guess
+%Output: pose estimate 
+%\item  {\bf Place recognition system using vision}
+%A place-recognition system is used for bootstrapping the localization and to recover from a localization failure.
+%\item  {\bf Online mapping frontend}
+%Data acquired for mapping, either as a raw dataset recorded from scratch, or during localization against an already existing map, has to be transmitted to the mapping backend. It has to be decided, what pre-processing tasks are done on the robot platform, and in what format and over what link the data is sent to the mapping backend. 
+
+
+\item  {\bf Mapping frontend}
+\taskpartners{\ETHZ}{\IBM}
+\label{task:wpmaloc:frontend}
+
+Sensor data from multiple vehicles needs to be received, validated, cross-checked and stored in the long-term mapping backend. This task is challenging, as it involves dealing with diverse and potentially untrusted data from different vehicles and different sensors. Data quality, trustworthiness and uncertainty has to be assessed and mismatching or outdated information must be rejected. While a functioning data-link is assumed for this work package, specifying and implementing a standardized data interface for all map related data is a key contribution of this task. In addition to that, time-stamp synchronization is another key aspect within the scope of this task.
+
+%Input: (Aggregated?) sensor data from \todo{} WP???, master time signal? semantic objects
+
+%Output: Verified mapping data (feature-tracks, landmarks, laser-points, semantic objects) in a standardized, internal representation.
+
+
+\item  {\bf Internal map representation}
+\label{task:wpmaloc:internalmaprepresenation}
+\taskpartners{\ETHZ}{\IBM}
+
+Representing large-scale mapping data is an open research problem. A lifelong map, as it is developed within this work package, contains both information expressed in a global metric frame, such as GPS measurements, but also information that is only geometrically accurate on a local scale, such as wheel odometry or inertial sensing data. Developing an internal map representation which on the one hand respects the heterogeneous geometric properties of different data elements while on the other hand is transparent to the outside forms the main goal of this task. The output will be a continuous abstract map, with unbounded lifespan, containing both sparse features and landmarks for metric localization, other raw and aggregated sensor data from lasers, radars and stereo-cameras as well as semantic objects.
+
+%Input: Standardized map elements from task above (\ref{task:wpmaloc:frontend}).
+
+%Output: Lifelong map
+
+
+\item {\bf Internal map storage}
+\label{task:wpcloud:6}
+\taskpartners{\IBM}{\ETHZ}
+
+While task 5.2 handles the abstract internal representation of the the data in the lifelong map, it is transparent to how the map is stored and accessed. The internal storage, however, forms a pivotal element in building up an efficient mapping backend able to scale to urban neighborhoods. This tasks investigates techniques to store and retrieve the mapping data - both to and from permanent as well as volatile storage - and to execute queries of distinct importance for localization and mapping purposes (such as geo-spatial queries). As the map is considered a permanent product, its content changes over time as the environment changes and data get aggregated and updated. Keeping track of these changes and developing appropriate versioning features forms another key contribution of this task. In addition to that, specifying and implementing a transparent and abstract interface to interact with the map storage, allowing adding, deleting and merging of data, is also within the scope of this task.
+
+\item {\bf Highly accurate metric localization}
+\label{task:wpmaloc:localization}
+\taskpartner{\ETHZ}
+
+Knowing where the vehicles are forms the basis for all other tasks, such as scene understanding, decision making and finally driving. This pose estimation needs on one hand to be consistent and interpretable on a global scale. This is ensured by tasks 5.\ref{task:wpmaloc:frontend} and 5.\ref{task:wpmaloc:internalmaprepresenation} On the other hand, it needs to be highly accurate. Otherwise it is not possible for the modules developed within \WPPerception to correctly register and interpret the raw sensor data in a geometric and spatial context. This, however, is prerequisite for any scene analysis and decision making module to be able to draw the right conclusions and initiate sensible commands to the vehicle actuation controller. Within this tasks, a vision-based metrically accurate localization system is developed and employed that allows localization of the vehicles at all times, day and night and in all weather and environment conditions, in centimeter accuracy. For this, we build upon the sparse, landmark-based localization system developed within V-Charge and improve it such that the following goals (untackled in V-Charge) will be met: improving the accuracy from 10cm to 1cm, allowing night-time localization, improving localization efficiency therby allowing long-term operation in urban neighborhoods.
+
+
+\item {\bf Classification and aggregation of semantic data}
+\label{task:wpmaloc:semantic}
+\taskpartners{\IBM}{\ETHZ}
+  
+In addition to sparse landmarks for metric localization, the lifelong map also contains semantic data. This semantic data will on one hand be detected and classified by on-board sensors and perception modules (in \WPPerception{}) and fed to the map (see Task 5.\ref{task:wpmaloc:frontend}). On board perception, however, has to respect strict runtime boundaries. In contrast to that, in the mapping backend, a more computational intensive, offline semantic data analysis can be executed on the basis of a much broader data pool, both temporally (data from the entire history in the past) and spatially (data from multiple vehicles operating at the same time). This not only allows refining semantic data received from the vehicles and more accurate detection and classification of additional semantic objects, but also the compilation of complex semantic products, such as speed-maps, traffic pattern computation and the assessment of safety levels for individual zones.  
+
+
+\item {\bf Map management and summarization}
+\label{task:wpmaloc:summary}
+\taskpartners{\ETHZ}{\IBM}
+
+As described above, we consider the map as a permanent entity with indefinite lifespan. This renders the data in the map prone to get outdated as the environments change, both in structure and appearance. Constantly keeping the map up-to-date and filtering out deprecated data is one of the contributions of this task. Another deals with condensing the data in the map and producing compact mapping products ('summary-maps') that achieve maximum localization performance (accuracy, reliability, ...) with as little data as possible. These summary maps are then distributed on demand to the the vehicles. 
+
+
+%removed with consent of Mike. Other partners do not have a specific evaluation deliverable
+%\item  {\bf Evaluation of the lifelong localization and mapping performance}
+%\label{task:wpmaloc:evaluation}
+%\taskpartners{\ETHZ}{\IBM}
+%
+%\todo{\ETHZ: other WPs do not have an individual evaluation task. Merge it into the other tasks.}
+%Tracking the performance of the mapping framework is essential to verify the methods used and the progress made within this work package. This task includes defining a set of practically relevant and scientific sound metrics to assess and compare the performance of the metric localization system and the mapping backend. Criteria, such as accuracy, robustness, speed, data transmission rates (efficiency) and integrity (consensus between actual localization accuracy and the accuracy reported to client modules) hall be involved in the evaluation of the metric localization system. For the mapping backend, relevant parameters are storage efficiency, storage and retrieving rates and query execution times.
+
+\end{tasks}
+
+
+
+
+
+
+
+\begin{deliverables}{\WPMappingNo}
+
+%\item {\bf Specification of the mapping frontend} \putright{{\bf M4}}
+%   \delresponsible{ETHZ}
+%   
+%This deliverable consists of all software and hardware specifications related to the mapping frontend as described in task \ref{task:wpmaloc:frontend}, as well as a concept on how data is to be exchanged between the vehicles and the mapping backend.
+%
+%\item {\bf Specification of the map storage concept} \putright{{\bf M8}}
+%	\delresponsible{IBM}
+%	
+%This deliverable specified the concept and all software and hardware specifications related to the map storage as described in task \ref{task:wpcloud:6}. The high-level interfaces for communication between the mapping front- and storage backend are defined and documented in this deliverable.
+
+\item {\bf Specification of the map frontend and storage concept} \putright{{\bf M4}} 
+\delresponsible{\ETHZ}
+
+This deliverable consists of all software and hardware specifications related to the mapping frontend and the internal map storage concept as described in Task~\WPMappingNo.\ref{task:wpmaloc:frontend} and Task~\WPMappingNo.\ref{task:wpcloud:6}, as well as a concept on how data is to be exchanged between the vehicles and the mapping backend.
+
+
+%
+%\item {\bf Lifelong internal map-representation and summary-mapping} \putright{{\bf M18}}
+%	\delresponsible{ETHZ}, IBM
+%	
+%This deliverable describes the way, map data is represented internally (see \ref{task:wpmaloc:internalmaprepresenation}), how it is kept up-to-date and how it is aggregated into summary maps. 
+%
+%\item {\bf Integration of the lifelong localization and mapping framework} \putright{{\bf M42}}
+%\delresponsible{ETHZ}
+%
+%\todo{\ETHZ: you forgot to add a del responsible here. Added you. Confirm, please!}
+%The deliverable describes the integration of lifelong localization and mapping system, i.e. how it is set-up in the vehicles, how it is connected to and interacts with other components of the overall system. 
+%
+%\item {\bf Evaluation of the lifelong mapping performance} \putright{{\bf M48}}
+%	\delresponsible{ETHZ}
+%	
+%The deliverable contains a thorough evaluation of the lifelong mapping performance.
+%\todo{\ETHZ: other partners do not have a specific evaluation deliverable. Rather this is performed as part of the other deliverables within the spiral development cycle ''evaluation''. I suggest you address this by having an intermediate deliverable for the technical deliverables above and a final one, where the updated technical stuff gets in as well as an evaluation of the component.}
+
+\item {\bf First development and integration cycle of lifelong mapping} \putright{{\bf M18}}
+\delresponsible{\ETHZ}
+\label{del:maloc:cycle1}
+
+This deliverable describes the lifelong mapping framework after the first development \& integration cycle. All components, notably the metric and semantic map, the metric online localization, the semantic data aggregation and the map summarization are functional and integrated on the vehicles, fulfill their basic purposes and interact with each other in a limited fashion. All components deliver first evaluation results.
+
+\item {\bf Second development and integration cycle of lifelong mapping} \putright{{\bf M42}}
+\delresponsible{\IBM}
+
+This deliverable describes the final lifelong mapping framework after the second development \& integration cycle. All components, as mentioned in deliverable D~\WPMappingNo.\ref{del:maloc:cycle1} above, are functional and integrated on the vehicles, have reached full maturity and adhere to the specifications and quality goals defined in this work package. Interaction between the components is seamless and according to specification. The deliverable contains the results of each module's final performance evaluation.
+
+
+\end{deliverables}
+
+%\clearpage
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPMappingNo.\ref{task:wpmaloc:frontend} Mapping-Frontend & Vehicles are capable of generating local maps and transmitting them to the cloud for further processing .\\ \hline
+  Task~\WPMappingNo.\ref{task:wpmaloc:internalmaprepresenation} Internal Map Representation & The map representation is capable of storing all relevant sensor and semantic data and is able to be updated with new data over time.\\ \hline
+  Task~\WPMappingNo.\ref{task:wpcloud:6} Internal Map Storage & Any data in the global map can be queried efficiently and there are internal inconsistencies among the version of the stored data.\\ \hline
+  Task~\WPMappingNo.\ref{task:wpmaloc:localization} Highly Accurate Metric Localization & Localization accuracy is better than 1cm (RMS), for day and night operations. \\ \hline
+  Task~\WPMappingNo.\ref{task:wpmaloc:semantic} Classification and Aggregation of Semantic Data & Semantic data spanning several vehicle runs is fused into an aggregate semantic product. \\ \hline
+  Task~\WPMappingNo.\ref{task:wpmaloc:summary} Map Management and Summarization & Localization performance is still acceptable when localization maps are reduced and summarized to 5\% of their original size. \\ \hline
+ % Task~\WPMappingNo.\ref{task:wpmaloc:evaluation} Evaluation of the Lifelong Localization and Mapping Performance & Evaluation metrics are defined and verified to reflect system performance. \todo{}.\\ \hline
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPMapping-specific Risks}{Contingency Plans}
+
+The mapping does not scale as much as necessary for the valet parking scenario & medium & The application will need to rely more on pre-processed data such that the working components can be demonstrated in a reasonable time.
+\\ \hline
+The online communication speed between vehicle and mapping backend does not allow exchanging the necessary data within the required time frames. & medium & The onboard algorithms will need to be designed to rely more on offline data and delay or buffer information exchange until bandwidth is available.
+\\ \hline 
+Data fed to the mapping backend is too noisy and unreliable to build a useful map from it. & very low & Investigate higher quality sensor alternatives.
+\end{RiskTable}
+}
+

@@ -1,0 +1,102 @@
+% !TEX root = ../proposal.tex
+
+\subsection{Concept and Approach}
+\label{sec:concept}
+
+%Concept and approach of the \Project{} project follow immediately from the objectives laid out in Section~\ref{sec:objectives}. Below, we describe both  applications and the associated base technologies to be researched and developed during the project, as well as the overarching development approach and the project's relationship to related past and ongoing initiatives.
+
+
+
+%\textbf{Application concept: }
+%from an application perspective, the \Project{} concept builds on the premise that an accelerated market take-up of \emph{targeted} automated transportation services is both necessary and feasible -- particularly in and around the city centers where the effects of urbanization are felt the most. Indeed, besides benefiting from automated transportation services significantly, urban neighborhood areas also exhibit some of the most favorable conditions for their introduction: on one hand this includes the proliferation of 30\,km/h areas. On the other hand road-side parking, in combination with existing instrumented and connected vehicles enables a flexible mobile perception, compute and data storage infrastructure. Both of these aspects greatly facilitate safety of operation. 
+
+%Within this environment, and growing jointly with the technological research concept, \Project{} will develop and exploit a set of coupled, targeted, citizen-centric transportation and service applications relying on instrumented and\,/\,or automated vehicles and cloud-backed infrastructure (see Figure \todo{} for an illustration of the architecture). They are staggered by complexity along an expected time to market between four and ten years.
+%\begin{denseItemize}
+%\item {\bf Stage 1: instrumented cars as remote sensors:} safely navigating through urban neighborhood environments constitutes one of the most challenging task in mobile robotics. Dealing with other road participants, including bicycles and pedestrians, with structural and appearance change in a predominantly unstructured environment and gathering valuable information about the traffic situation, road conditions or available parking spots are not only extremely demanding tasks, but also difficult so solve in a single agent setting. We believe, in order to master these challenges, useful information gathered by (semi-)automated vehicles should be shared within a network that allows enhancing and cross-verifying individual vehicles' perceived local environment. A particularly important role in this regard is envisioned for the large fleet of existing instrumented cars that remain typically parked for more than 22 hours per day and could be monetized to provide perception, computation, map storage \& deployment and other services. Improving long-term safety of operation in the $\geq$10\,s range is the primary objective of the project and is expected to result in an expedited take-up of the subsequent staggered automated applications.
+
+%\item {\bf Stage 2: automated pick-up and drop-off of people:} finding a parking space in urban environments can be an unpredictable, time consuming and nerve-wracking task from which a end-user can be relieved through automation. Valet parking has been successfully demonstrated already within the \todo{V-Charge project} in closed-off parking garages with limited traffic and pedestrian interaction and at very low speeds. Bringing this application into urban environments not only immensely increases its availability, but also confronts the system with the extremely broad and diverse challenges of automated urban driving described above. Our application would be capable of  automatically finding a parking space within urban areas through long-term semantic map management. This involves automatic detection of parking spots, automatic evaluation of availability of parking spots and sharing this information with other agents through a server backend; automatically driving to an available parking spot and parking in; automatically parking out and driving to any pick-up place within the urban area. This involves automatic detection and classification of safe places to stop for pick-up; detection and interaction with anything that could possibly endanger the safety of any human, of the vehicle itself or of any other traffic participant, or the success of the mission. Any obstacles are to be avoided and all traffic rules followed at any time. The interaction with other traffic participant, especially humans, needs to proceed in a natural way, letting the autonomous vehicle seamlessly integrate in an environment dominated by human-operated cars. This system naturally lends itself as an inclusive means to transportation for elderly or citizens with physical handicaps that are unable to walk for even short distances. At the same time, such a system would facilitate the sharing of vehicle infrastructure, as comfort and practicability of the overall system approaches that of a privately owned vehicle -- at a fraction of the cost. This last point is expected to render comfortable personal transportation affordable for nearly everyone.
+
+%\item {\bf Stage 3: automated transport for the last mile delivery of goods:} the last mile delivery of goods presently results in significant emissions (noise, pollution and traffic congestion due to parked delivery vehicles) and safety concerns -- particularly in narrow urban neighborhood areas. Safe automated operation at low speeds enables the efficient distribution of goods (from groceries to parcels) on the last mile. In such a scenario, automated vehicles capable of valet parking in urban environments would serve as an efficient distributed delivery network between citizens' doorstep and dedicated pick-up\,/\,drop-off areas located at the entrance to urban areas. Our application would be capable of  automatically driving to the closest pick-up\,/\,drop-off area by employing the localization, mapping, scene understanding and reasoning technology developed within the project; allowing for the manual or automated loading or unloading of goods at the area; and returning to a parking spot in the vicinity.
+%\end{denseItemize}
+
+
+
+The \Project consortium firmly believes that it is of paramount importance to provide a clear, well-defined but also representative use-case around which the project can be built and which can be physically demonstrated by project end.
+
+\subsubsection{Application concept and demonstration approach}
+We choose urban on-street valet parking as \Project's central use-case. Prototypical valet parking systems have already been demonstrated, such as that developed by the V-Charge project\footnote{http://www.v-charge.eu/}. \Project can thus be seen as continuation of such systems -- with the fundamental difference that it targets public roads and parking lots. This on the one hand dramatically increases the 'coverage' of the system and on the other hand exposes the system to the extremely broad and diverse challenges of automated urban driving.
+
+From the end-user perspective the service consists of the following activities:
+\begin{denseItemize}
+	\item The customer drives to his/her destination: for instance a restaurant in the city centre
+	\item It is raining, the parking lot is somewhat remote from the entrance and is actually already full
+	\item The driver pulls up directly in front of the entrance, leaves the car and whilst entering the restaurant activates the system using a smart phone application
+	\item The car drives to the nearest free parking spot / lot in the urban neighborhood and parks there
+	\item After the dinner the customer uses the smart phone app to ''call'' the car back for pick up
+\end{denseItemize}
+
+%\begin{enumerate}
+%	\item \textbf{Clear benefits for the customer.}
+%Finding a parking space in urban environments can be an unpredictable, time consuming and nerve-wracking task from which a end-user can be entirely relieved.
+%	
+%	\item \textbf{Clear benefits for the society.}
+%	This system naturally lends itself as an inclusive means to transportation for elderly or citizens with physical handicaps that are unable to walk for even short distances. At the same time, such a system would facilitate the car-sharing, as comfort and practicability of the overall system approaches that of a privately owned vehicle -- at a fraction of the cost. This last point is expected to render comfortable personal transportation affordable for nearly everyone.
+%
+%	\item \textbf{Good representation of the general challenges of automated urban driving.}
+%From the technical perspective, the system needs to be able to cope with all the challenges related to automated driving in cities: integrate well into the traffic, react to other traffic participants, cross intersections, etc...
+%Our application would be capable of  automatically finding a parking space within urban areas through long-term semantic map management. This involves automatic detection of parking spots, automatic evaluation of availability of parking spots and sharing this information with other agents through a server backend; automatically driving to an available parking spot and parking in; automatically parking out and driving to any pick-up place within the urban area. This involves automatic detection and classification of safe places to stop for pick-up; detection and interaction with anything that could possibly endanger the safety of any human, of the vehicle itself or of any other traffic participant, or the success of the mission. Any obstacles are to be avoided and all traffic rules followed at any time. The interaction with other traffic participant, especially humans, needs to proceed in a natural way, letting the autonomous vehicle seamlessly integrate in an environment dominated by human-operated cars. 
+%
+%\end{enumerate}
+%The attractiveness of this application as central goal for the project manifests itself in that it addresses all of the aims laid out in Section 1.1, while being implementable on close to market platforms and infrastructure.
+
+The attractiveness of this application as central goal for the project manifests itself in that it is representative of all the challenges of urban driving whilst providing clear benefits for the customer and the society which substantially eases the communication between the project and the general public.
+
+\textbf{Generality of the challenge.}
+From the technical perspective, the system needs to be able to cope with all the challenges related to automated driving in cities: integrate well into the traffic, react to other traffic participants, cross intersections, \etc.
+Our application would be capable of automatically finding a parking space within urban areas through long-term semantic map management. This involves automatic detection of parking spots, automatic evaluation of availability of parking spots and sharing this information with other agents through a server backend; automatically driving to an available parking spot and parking in; automatically parking out and driving to any pick-up place within the urban area. This involves automatic detection and classification of safe places to stop for pick-up; detection and interaction with anything that could possibly endanger the safety of any human, of the vehicle itself or of any other traffic participant, or the success of the mission. Obstacles are to be avoided and all traffic rules followed at any time. The interaction with other traffic participants, especially humans, needs to proceed in a natural way, letting the autonomous vehicle seamlessly integrate in an environment dominated by human-operated cars. However, as automated urban driving is too difficult to solve all at once within the capacity and time frame of \Project, we reduce the scope by limiting the application area to urban 30km/h zones. This endangers neither the representativeness of the use-case nor the generality of the provided solutions. However, it allows  for relaxation of some important constraints such as required detection ranges, accuracies or prediction horizon. Those performance parameters can be incrementally improved as the technology matures.
+
+\textbf{Clear benefits for the customer and the society.}
+Finding a parking space in urban environments can be an unpredictable, time consuming and nerve-wracking task from which a end-user can be entirely relieved.
+This system naturally lends itself as an inclusive means to transportation for elderly or citizens with physical handicaps that are unable to walk for even short distances. At the same time, such a system would facilitate the car-sharing, as comfort and practicability of the overall system approaches that of a privately owned vehicle -- at a fraction of the cost. This last point is expected to render comfortable personal transportation affordable for nearly everyone.
+
+
+\subsubsection{Demonstrator system concept }
+As a minimal demonstrable configuration, \Project{} will employ two automated cars connected via a cloud backend. To kick-start development and build on existing know-how we build on the outcome of the V-Charge project, and will reuse the project cars while the new vehicle is under development. 
+
+\subsubsection{Technology research concept}
+The application described above as a general representation of the challenges of automated urban driving identifies the need for a further decisisve scientific investment in connected basic robotic technologies. It illustrates the great benefits for society in urban areas that will come from pushing the technological limits in these fields beyond the current state-of-the art. Within \Project{} the following four broad categories will form the center pieces of a technological research and development concept and are assigned their own technical work packages (see Figure~2 for an overview on WPs).
+\begin{denseItemize}
+
+\item \textbf{Environment perception:} a key element for autonomous driving consists of investigating suitable sensing possibilities and defining a low level spatio-temporal and appearance based representation of the vehicle's environment. In addition to that, highly accurate detection, tracking and classification of any objects in the scene as well as adapting to adverse visibility conditions, perceiving the road infrastructure, 3D terrain, the road users and their issued signals all form integral parts of environment perception. Multi-sensor data fusion and temporal data fusion will allow a significant increase of the driving accuracy and of the data density. Perception is detailed in \WPPerception.
+
+\item \textbf{Life-long metric localization and mapping:} for the described application in urban outdoor settings to be accomplishable, a metrically precise and robust localization system must be available. If the autonomous vehicle does not know precisely where it is, it cannot know where to go, how to avoid an obstacle or how to park in. Providing a system that allows metrically precise localization under any circumstances is not only a key requirement, but also an ongoing research topic for which convincing solutions have yet to be presented. Our approach to lifelong localization and mapping is detailed in \WPMapping.
+
+\item \textbf{Scene understanding and semantic mapping:} in addition to precise localization and mapping, understanding the local environment represents another pivotal element for an autonomous vehicle. This on one hand includes automatic detection and correct semantic classification of items of importance, such as pedestrians, cars, traffic signs, etc., all of which need to be registered onto a metric map. But it also involves drawing correct deductions based on the presence of multiple such detected semantic items. Scene understanding is covered in detail in \WPSceneUnderstanding.
+
+\item \textbf{Information management:} sharing raw and aggregated sensor data between multiple agents undoubtedly provides key benefits for gaining an enhanced understanding of an agent's local environment, even beyond its own sensor range. However, combining data from different vehicles with heterogeneous sensor suites also requires careful validation and verification, finding consensus and potentially rejection of untrusted, or mismatching data. Information management forms part of \WPMapping.
+\end{denseItemize}
+
+%\todo{consider including this here:
+%explain that those improvements will be directly applicable to (i) driver assistance systems -> soon market introduction and (ii)	logistics, last mile delivery -> additional benefits to the society
+%It is a repetition but maybe it is worth repeating.
+%}
+
+\subsubsection{Development approach }
+% Describe and explain the overall approach and methodology, distinguishing, as appropriate, activities indicated in the relevant section of the work programme, e.g. for research, demonstration, piloting, first market replication, etc;
+The development approach of the \Project{} project is described in detail in Section~\ref{sec:workoverview}. Briefly, we use a {\em spiral life-cycle development approach} to iterate through phases of (i) specification, (ii) research and development, and (iii) integration and evaluation twice throughout the project. This allows the consortium to be agile, to adapt to unforeseen situations, to integrate new technology developments, and to adapt our approach as new specifications arise. In parallel to our research and development activities, \Project{} will pursue an active program of dissemination, exploitation, and communication with the public as outlined in Section~\ref{sec:impact-measures}.
+
+
+
+\subsubsection{Relationship to other international research and innovation activities} 
+%{\em From the template: Describe any national or international research and innovation activities which will be linked with the project, especially where the outputs from these will feed into the project;}
+% - Describe any national or international research and innovation
+%   activities which will be linked with the project, especially where
+%   the outputs from these will feed into the project;
+
+%In order to achieve the stated goals, the \Project{} project will build on and exploit research results of previous International and European research activities.
+%A particular focus will be laid on related previous joint projects between the consortium partners, particularly the V-Charge project~\cite{xxxVCHARGE}. The expertise gained from these successful collaborations in the areas of autonomous robot navigation, map learning, 3D reconstruction, and scene interpretation will be directly transferred to \Project. Besides capitalizing on the results of previous relevant projects, the \Project{} consortium intends to develop synergies with the partners' ongoing projects in order to extend know-how and visibility to their focused audience. Where applicable, we will list these projects in Section~\ref{sec:ambition}. In a similar vein, a list of partners' activities within standardization bodies that will be considered within the project is described in Section~\ref{sec:XXX}.
+
+In order to achieve the stated goals, the \Project{} project will build on and exploit research results of previous International and European research activities.
+A particular focus will be laid on related previous joint projects between the consortium partners. Of key importance is the V-Charge project~\cite{vcharge} with very successful cooperation of \VW and \ETHZ resulting in technology advances in localisation and navigation, that will be directly transferred into \Project. Another example is the Intersafe II Project, where \VW and \CLUJ have worked together on urban perception and environment modelling. 
+
+Besides capitalizing on the results of previous relevant projects, the \Project{} consortium intends to develop synergies with the partners' ongoing projects in order to extend know-how and visibility to their focused audience. Where applicable, we will list these projects in Section~\ref{sec:ambition}. In a similar vein, a list of partners' activities within standardization bodies that will be considered within the project is described in Section~2.2.2.

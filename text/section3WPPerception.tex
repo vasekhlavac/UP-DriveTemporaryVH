@@ -1,0 +1,126 @@
+% !TEX root = ../proposal.tex
+
+\paragraph{\WPPerception: \WPPerceptionTitle\\}
+{\noindent\wptablefont
+\label{wp3}
+
+\wptableheaderA{\WPPerceptionTitle}{\WPPerception}{M1}{RTD}{\CLUJ}
+\wptableheaderB{\WPPerceptionVW}{\WPPerceptionETHZ}{\WPPerceptionIBM}{\WPPerceptionCLUJ}{\WPPerceptionPRAGUE}
+
+\headerBox{Objectives}{}
+This work package provides the vehicle-side online sensing functionality required for automated driving in low-speed urban environments. The primary objectives of this work package are:
+\begin{denseItemize}
+\item Specification and design of on-board sensing based on the output of \WPSpecification
+\item Achieving on-board 360\degree \space multi-sensorial perception
+\item Refinement of perception capabilities based on sensor fusion
+\item Generation of an environmental model suitable for automated navigation
+\end{denseItemize}
+
+\begin{tasks}{\WPPerceptionNo}
+
+\item  {\bf Specification and design of on-board sensing}
+  \taskpartners{\CLUJ{}}{\PRAGUE{}, \VW{}}
+    \label{task:wpper:spec}
+  
+This task will investigate the sensing possibilities, suitable to enable vehicle's highly automated and/or autonomous driving capabilities, as well as to collect useful information for map related operations including map enrichment, alignment, etc. 
+The first important task is the detailed specification of the perception goals and of the sensor model of the environment. The static and dynamic traffic entities and the landmarks necessary for map enrichment, localization and automated or autonomous navigation will be included.
+The second important task is the selection and the definition of the robust and redundant perception solution for each individual perception task based on the available or new sensors like stereo and mono cameras, infrared cameras, laser scanners, radars or alternative sources of information like map information, communication, etc.
+
+\item  {\bf Spatio-temporal and appearance based low level representation}
+  \taskpartners{\CLUJ}{\PRAGUE{}}
+      \label{task:wpper:spatio}
+  
+The spatio-temporal and appearance based low level representation assigns a multi-dimensional vector to each pixel as a result of combining 3D position information with optical flow and intensity or color information. 
+This representation is obtained by low level fusion of the information collected from the following sensors: stereo cameras, mono cameras, laser scanners and radars. Additional to the sensorial information, dense optical flow computation and visual odometry based high speed 6DoF ego-motion estimation have to be studied and implemented. This spatio-temporal and appearance based low level representation is a key element for high accuracy detection, tracking and classification. It will be used as an input for the next tasks.
+
+\item  {\bf Perception adaptation to adverse visibility conditions}
+  \taskpartner{\CLUJ{}}
+      \label{task:wpper:perc}
+  
+This task will be focused on solutions against adverse visibility conditions like fog, dust, rain, night, glare, etc. The detection of this adverse visibility conditions will be followed by counteracting measures including camera parameters updating and signal correction.
+
+\item  {\bf Road infrastructure perception}
+  \taskpartner{\CLUJ}
+      \label{task:wpper:roadi}
+  
+This task will include road surface, lanes, curbs, traffic isles, guardrails, traffic signs, traffic lights and lamp posts, painted road signs, tracking, classification and relative localization with regard to the ego vehicle. The solution will exploit both the 3D and 2D sensors, and will use probabilistic approaches for detection, tracking and classification.
+
+\item  {\bf Real-time 3D terrain perception}
+  \taskpartner{\PRAGUE}
+      \label{task:wpper:roadm}
+  
+This task will be focused on road surface monitoring for detection, tracking, classification and relative localization of potholes, berms, ditches, slopes.
+The solution will be based on an accurate elevation map built using the probabilistic direct and inverse sensor models, and temporal or multi-sensor fusion.
+
+\item  {\bf Road users and signaling perception}
+  \taskpartners{\CLUJ}{all other partners}
+      \label{task:wpper:roadu}
+
+This task will be focused on road users detection, tracking and classification. A history of the tracked entities including identifiers, positions, speeds and tracking age will be provided. It will include cars, buses, trucks, and also the vulnerable road users like pedestrians. This task is further focused on detection of signals issued by vehicles, vulnerable road users.
+
+\item  {\bf Sensor fusion based perception refinement}
+  \taskpartners{\VW}{\CLUJ}
+      \label{task:wpper:sfusion}
+  
+Due to the necessary redundancy of the sensors and of the methods used for detection, tracking and classification multi-sensor fusion will be possible at different levels and will allow a significant increase of the accuracy and of the confidence of operations. Temporal fusion applied at low level data will also reduce the noise and increase the density of the data.
+
+\end{tasks}
+
+
+\begin{deliverables}{\WPPerceptionNo}
+
+\item {\bf Specification and design of on-board sensing} \putright{{\bf M8(i), M28}}
+	\delresponsible{\CLUJ}
+	
+The deliverable provides a report on the detailed specification of the perception goals and of the sensorial model of the environment. It also describes the sensors selection and their optimal setup configuration for obtaining a robust and redundant perception solution for each individual perception task -- in alignment with the system-wide specification of \WPSpecification. 
+
+\item {\bf Low-level perception functions} \putright{{\bf M18(i), M32}}
+   \delresponsible{\CLUJ}
+   
+The deliverable provides first a report and code on the design and implementation evaluation of the spatio-temporal and appearance based low level representation. It provides also a report and code on the perception adaptation to adverse visibility conditions functions and their design, implementation and evaluation.
+
+\item {\bf Higher-level perception functions} \putright{{\bf M18(i), M42}}
+   \delresponsible{\CLUJ, \PRAGUE, \VW}
+   
+The deliverable provides a report and code on the road perception, terrain mapping, road users and signaling perception functions and their design, implementation and evaluation. It also provides sensor fusion based perception refinement and environment model design, implementation and evaluation.
+
+\end{deliverables}
+
+
+%\clearpage
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPPerceptionNo.\ref{task:wpper:spec} Specification and design of on -board sensing & Fulfilling of the requirements is thoroughly checked. The state of the art and verified solutions are used as a starting point of the on-board sensing.\\ \hline
+  %Task~\WPPerceptionNo.\ref{task:wpper:sensor} Sensors cross-calibration & Cross-calibration evaluation methods will be implemented.\\ \hline
+%mru: moved to integration wp
+  %Task~\WPPerceptionNo.\ref{task:wpper:car} Data acquistion & Ground truth data from a controlled environment will be acquired and evaluated to validate the acquisition process.\\ \hline  
+  Task~\WPPerceptionNo.\ref{task:wpper:spatio} Spatio-temporal and appearance based low level representation & Ground truth data based evaluation.\\ \hline  
+  Task~\WPPerceptionNo.\ref{task:wpper:perc} Perception adaptation to adverse visibility conditions & The quality of images acquired in adverse visibility condition will be in average higher than 90\% from the quality of the images acquired in normal conditions. Evaluation criteria will be exactly established in the specification phase. 
+  \\ \hline
+  Task~\WPPerceptionNo.\ref{task:wpper:roadi} Road infrastructure perception & The 90\% of the road infrastructure elements will be detected, tracked and classified. Evaluation criteria will be exactly established in the specification phase. \\ \hline  
+  Task~\WPPerceptionNo.\ref{task:wpper:roadm} Real-time 3D terrain perception & The 90\% of the road surface 3D elements will be detected, tracked and classified. Evaluation criteria will be exactly established in the specification phase. \\ \hline  
+  Task~\WPPerceptionNo.\ref{task:wpper:roadu} Road users \& signaling perception & The 90\% of the road users and signaling entities will be detected, tracked and classified. Evaluation criteria will be exactly established in the specification phase. \\ \hline  
+  %Task~\WPPerceptionNo.\ref{task:wpper:land} Landmarks & Verification of the evaluation criteria established in the specification phase.\\ \hline    
+  Task~\WPPerceptionNo.\ref{task:wpper:sfusion} Sensor fusion based perception refinement & The 95\% of the road infrastructure, surface, users and signaling entities will be detected, tracked and classified. Evaluation criteria will be exactly established in the specification phase.
+  %Task~\WPPerceptionNo.\ref{task:wpper:envir} Environment model & Verification of the evaluation criteria established in the specification phase. 
+\end{SuccessTable}
+
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPPerception-specific Risks}{Contingency Plans}
+
+Very high on-board computational power may be required. & medium &
+Updating the hardware architecture to the new technologies that will appear.
+\\ \hline
+Low processing speed. & medium & Perception system will be designed with a high-scalability architecture to handle the actual computational requirements and its availability on the demonstrator.
+\\ \hline
+Sensors synchronization problems. & medium & 
+Design of accurate timestamp based synchronization and for sensitive associations a signal based synchronization.
+\end{RiskTable}
+}
+

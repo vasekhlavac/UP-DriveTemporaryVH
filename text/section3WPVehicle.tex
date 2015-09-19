@@ -1,0 +1,122 @@
+% !TEX root = ../proposal.tex
+
+\paragraph{\WPVehicle: \WPVehicleTitle \\}
+
+{\noindent\wptablefont
+\label{wp1}
+\label{wp2}
+
+\wptableheaderA{\WPVehicleTitle}{\WPVehicle}{M1}{RTD}{\VW}
+\wptableheaderB{\WPVehicleVW}{\WPVehicleETHZ}{\WPVehicleIBM}{\WPVehicleCLUJ}{\WPVehiclePRAGUE}
+
+\headerBox{Objectives}{}
+
+The objective of this work package is to provide fully operational vehicle platforms, including sensing and actuation capability. This includes the proper integration of the relevant system-wide specifications from \WPSpecification, a rapid refurbishing of the existing automated vehicle from the V-Charge project to accelerate research from the beginning on, and the design and setup of a new, improved vehicle platform over the first half of the project.
+
+\begin{tasks}{\WPVehicleNo}
+
+\item  {\bf Vehicle platform setup}
+  \taskpartners{\VW}{all other partners}
+
+In total there will be two test-cars built for the project. One car, available from project start will consist of an updated version of the test vehicle originating from the Project V-Charge. The vehicle will receive an update of the sensor setup as well as modifications enabling automated driving at speeds up to 30 km/h. The reuse of a platform from previous project has two main advantages: it reduces the overall project costs and allows for faster delivery of a fully functional car to the project. It also allows to profit from and exploit previous project results. The second car will be fully functional shortly after mid-term of the project.
+
+This task involves the initial vehicle buildup, including sensor system, computer system, communication system (in-vehicle and between vehicles) as well as Human Machine Interface (HMI) and safety elements. The sensor setup will be based on stock or pre-development sensors such as laser-scanners, radars and cameras. The sensor configuration will be based on typical pre-development cars -- with modifications arising from requirements identified in \WPSpecification.
+
+\item  {\bf Drive by wire functionality}
+  \taskpartner{\VW}
+
+This task enables automated operation of the refurbished -- as well as the new -- car through actuation of all relevant vehicle systems: gas, brakes, steering wheel, gearbox, parking brake, and signaling lights. A low level control interface will be provided to the computer system. 
+
+\item  {\bf Low-level data acquisition, processing \& communication framework}
+  \taskpartners{\VW}{all other partners}
+	\label{task:wpveh:low}
+
+In this task the design and implementation of a basic framework for communication, data acquisition and processing between vehicle components will be completed. The goal is to enable data collection, online and offline processing, testing of individual modules in the vehicle as well as basic communication between the modules on the vehicle. Framework components include: (i) operating system installations tailored towards operation in a real-time embedded environment, (ii) middleware for the low-level components' inter-process-communication, (iii) basic raw data recording and playback system, and (iv) synchronization of the computer system. For the full vehicle-side system integration higher level framework elements will be required in addition. These are described in Task~\WPVehicleNo.\ref{task:wpveh:high}.
+
+\item {\bf High level system debugging \& maintenance framework}
+	\taskpartners{\VW}{all other partners}
+	\label{task:wpveh:high}
+
+Building on top of Task~\WPVehicleNo.\ref{task:wpveh:low} additional framework elements for system integration, maintenance and debugging will be developed. The elements include: (i) mission- and black-box recording system designed to always run in the background, (ii) system health monitoring, (iii) distributed log message system, (iv) 3D visualisation of messages from sensor data to trajectory planning, (v) a central \emph{cockpit view} providing most relevant system information on a single screen, (vi) configuration and distribution of vehicle\,/\,test parameters, and (vii) automatic boot-up of software. The above choice of tools is based on best practices from previous collaborative robotics projects and will be adapted to best suit \Project{}.
+An initial version of the framework will be provided in the first year. However, substantial effort will be invested throughout the project to keep the framework up to date with the growing and evolving functionality of the project.
+
+\item  {\bf Calibration \& data integrity validation of the sensor system}
+  \taskpartners{\ETHZ}{\PRAGUE, \VW}
+
+%\todo{\ETHZ: you lead this task but do not have PM in this WP. Propose solution}. Moved PM from WP4 to here, in agreement with Mike
+This task ensures the calibration and data integrity validation of the individual sensors and the sensor system. Basic calibration will include cameras (intrinsic and extrinsic), Laser Scanners,  and Radars (extrinsic). Integrity validation will include frame rates and frame drops, latency, time jitter. The calibration/validation procedure will be repeated until a desired level of accuracy/integrity has been achieved. After this initial step, calibration/validation will be repeated periodically at least once a year. Parts of the validation process may be automated through dedicated software.
+
+%\item  {\bf Vehicle safety concept}
+%  \taskpartner{\VW}
+
+%This task addresses the implementation of the low-level vehicle safety. It will treat (i) transfer drives, (ii) data acquisition drives with drive by wire interface not armed, (iii) test drives with safety driver in driver's seat, and (iv) test and demonstration drives without safety driver in driver's seat.
+
+\item  {\bf Reference sensor integration}
+  \taskpartner{\VW}
+
+The objective of this task is to provide ground truth information facilitating the evaluation of results. This will directly feed into the data acquisition pipeline of \WPIntegration. Activities include: (i) reversible installation of reference sensors for localization and local perception (scene geometry, object geometry and motion); (ii) integration of the reference sensors into data acquisition framework; and (iii) synchronization, calibration and integrity validation of the reference sensors.
+
+\item  {\bf Vehicle maintenance and update}
+  \taskpartner{\VW}
+
+It is to be expected that some hardware updates (such as the addition of a new or improved sensor) will be necessary over the course of the project, as specified or re-specified in \WPSpecification. Due to the high complexity of the test platform it is also to be expected that different mechanical, electrical, or even low-level software issues will arise as the project progresses. This task maintains the test platforms in an operable condition throughout the project duration.
+
+\end{tasks}
+
+
+\begin{deliverables}{\WPVehicleNo}
+
+\item {\bf First vehicle platform available} \putright{{\bf M8}}
+	\delresponsible{\VW}
+	\label{del:wpveh:vehhard1}
+
+This deliverable will mark the completion of the hardware and low level software of the first vehicle platform. It will include a vehicle manual with photos of all relevant hardware elements. This will be accompanied by figures and short descriptions of basic features of the communication, acquisition and processing framework. It will further provide a dataset including data from all sensors and a report with figures of visualized raw data. Finally it will provide a video demonstrating drive by wire operation using a gamepad / keyboard. 
+%as well as plots of vehicle responses to basic control commands.
+
+\item {\bf First vehicle platform fully operational} \putright{{\bf M12}}
+	\delresponsible{\VW, \ETHZ, \IBM}
+	\label{del:wpveh:vehsoft1}
+ 
+This document will mark the completion of the first vehicle platform and its full utility for the consecutive Work Packages. Specifically, it will document the calibration as well as data integrity validation of the sensors (including the reference sensors). It will also present relevant features of the high-level maintenance framework. Furthermore, it will contain a short report on communication capabilities (bandwidth, latency, etc., measured under good conditions). Last but not least: it will explain the safety elements and precautions.
+
+\item {\bf Second vehicle platform available} \putright{{\bf M24}}
+  \delresponsible{\VW}
+	
+This deliverable will document the availability of the second vehicle platform analogously to Deliverable D\WPVehicleNo.\ref{del:wpveh:vehhard1}.
+
+\item {\bf Second vehicle platform fully functional} \putright{{\bf M28}}
+  \delresponsible{\VW, \ETHZ, \IBM}
+	
+This deliverable will document the full utility of the second vehicle platform analogously to Deliverable D\WPVehicleNo.\ref{del:wpveh:vehsoft1}.
+
+	
+\end{deliverables}
+
+
+%\clearpage
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPVehicleNo.1: Vehicle platform setup & Specifications from \WPSpecification integrated into platform refurbishment\,/\,design. All sensors deliver data, computer system interconnected and operational.\\ \hline
+  Task~\WPVehicleNo.2: Drive by wire functionality & Drive by wire operation using a gamepad\,/\,keyboard operational.\\ \hline
+  Task~\WPVehicleNo.3: Communication, acquisition and processing framework &  All components of the framework operational, no or only minor issues present.\\ \hline
+  Task~\WPVehicleNo.4: System maintenance and debugging framework & Low-level vehicle system issues can be analyzed directly in the car.\\ \hline
+  Task~\WPVehicleNo.5: Calibration and data integrity validation of the sensor system & Raw data and calibration data fulfills the requirements of all partners' modules.\\ \hline
+%  Task~\WPVehicleNo.6: Safety concept & All relevant risks have been covered for with hardware, software or organizational countermeasures.\\ \hline
+  Task~\WPVehicleNo.6: Reference sensor integration &  Reference data available as quantitative and/or qualitative ground truth. Verification data available for tasks from work packages 4--7.\\ \hline
+  Task~\WPVehicleNo.7: Vehicle maintenance and update & Vehicles usable and available for development and testing >85\% of the time.
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPVehicle-specific Risks}{Contingency Plans}
+
+Vehicle build-up takes longer than planned. & medium &Test vehicles and data from the V-Charge and consortium members' related projects will be used in the meantime. \\ \hline
+Safety analysis does not allow for driver-less operation with velocities >10km/h in public environments. & high & Safety driver will always be seated in driver's seat during test drives. Demonstrations will either be performed on a closed track or with safety driver in passenger's seat or the driver's seat.\\ \hline
+Accuracy of reference sensors only  insignificantly better than the system under test & medium & Project will investigate for other ways of validating the results, such as borrowing better reference sensors from other projects, designing specific controlled test scenarios, validation through simulation.
+\end{RiskTable}
+}
+

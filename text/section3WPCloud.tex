@@ -1,0 +1,267 @@
+% !TEX root = ../proposal.tex
+
+%\subsubsection{\WPCloud: \WPCloudTitle}
+\paragraph{\WPCloud: \WPCloudTitle \\}
+
+{\noindent\wptablefont
+\label{wp5}
+
+\wptableheaderA{\WPCloudTitle}{\WPCloud}{M1}{RTD}{\IBM}
+\wptableheaderB{\WPCloudVW}{\WPCloudETHZ}{\WPCloudIBM}{\WPCloudCLUJ}{\WPCloudPRAGUE}
+
+\headerBox{Objectives}{}
+
+The aim of this work package is to design and implement the cloud infrastructure
+  required to develop, deploy, test, and operate the software developed in \Project.
+This infrastructure consists of a
+  foundational hardware stack
+  and
+  a software stack for managing development, deployment, operation, and long-term data storage.
+
+%
+% The aim of this work package is to specify and setup cloud infrastructure,
+%   composed out of a foundational hardware stack,
+%   and a software stack characterized by a complete development and deployment
+%   management tool chain
+%   -- spanning both a server backend and a common-access area on the vehicles.
+% The design follows the needs of a distributed Big Data knowledge discovery appliance.
+% In particular,
+%   design decisions are based on the data flow of the knowledge
+%   discovery pipeline spanning data assimilation to intelligence creation and
+%   consumption in between vehicles and the backend.
+% Between the various stages of the pipeline,
+%   data may undergo a sequence of transformations that are triggered
+%   by various analytics algorithms.
+% In addition,
+%   new intermediate data representations may be created and
+%   additional analytics algorithms applied on it.
+% The cloud framework caters to and manages the testing and deployment of these parts.
+
+The key objectives of \WPCloud consist of the following points:
+
+\begin{denseItemize}
+\item Setup of project-wide development infrastructure
+\item Setup of server and shared-area vehicle side compute hardware components based on the functional and application requirements derived in \WPSpecification.
+\item Design and implementation of a development and deployment tool chain
+\item Setup and implementation of an efficient and secure communication framework
+\item Setup and implementation of a bulk data storage service
+%\item \textbf{Setup and implementation of a server-side monitoring service}
+%\item \textbf{Design of project-wide knowledge representation, storage and curation framework}
+\end{denseItemize}
+
+
+\begin{tasks}{\WPCloudNo}
+
+\item {\bf Setup of project-wide development infrastructure}
+\label{task:wpcloud:development-infrastructure}
+\taskpartners{\IBM}{all other partners}
+
+In order to enable collaborative system development state-of-the-art tools will be installed and made accessible to all partners. These include access to a software repository, wiki, and issue tracking system. The software modules developed by the partners will be handled using a central
+  development repository.
+Each partner is responsible for keeping the modules
+  developed up-to-date and synced with this repository.
+All software documentation will be stored in the same repository
+  to ensure that changes to code and documentation can be
+  performed synchronously and applied atomically.
+
+
+\item {\bf Setup of hardware stack}
+\label{task:wpcloud:1}
+\taskpartner{\IBM}
+
+The hardware stack will consist of compute nodes, accelerators, memory, storage
+  and communication infrastructure, and will be scoped based on the functional
+  and application requirements derived in \WPSpecification. We target a gradual scale-out over the course of the project.
+On the server side
+  compute nodes will be complemented by state-of-the-art commercial GPU
+  compute accelerators offering a vast amount of hardware concurrency for
+  data-parallel applications.
+The compute nodes be configured in a horizontal scale-out architecture
+  to enable the addition of further hardware on demand.
+Concerning memory, we expect to deploy significant standard dynamic random-access (DRAM) memory.
+This approach allows the handling and
+  manipulation of significant chunks of the knowledge graph in memory -- thereby
+  practically enabling the large-scale map maintenance and scene understanding
+  applications covered in \Project.
+% NOTE (ime): Persistence should be managed via an object-storage backend.
+SSD hard-drive-based storage may
+  complement memory to enable node-local persistent data caches.
+% NOTE (ime): this should not be a problem according to this article:
+% http://www.storagesearch.com/ssdmyths-endurance.html
+% (\todo{How about the limited number of write cycles of SSD for data acquisition?}).
+On the vehicle side,
+  we intend to deploy a smaller-scale version of the server, interfacing to the
+  hardware functionality provided by \VW in \WPVehicle.
+
+
+\item {\bf Design and implementation of the development and deployment tool chain}
+\label{task:wpcloud:2}
+\taskpartners{\IBM}{all other partners}
+
+The development and deployment tool chain consists of
+  a configuration management system and a continuous integration system.
+The configuration management system will allow to declaratively specify and
+  automatically deploy the entire software stack for the server-side and the
+  vehicle-side.
+It will use containerization and/or virtualization as key implementation techniques.
+The continuous integration system will offer functionality for automatic
+  compilation and testing of the software
+  maintained in the project-wide development repository (Task~\WPCloudNo.\ref{task:wpcloud:development-infrastructure}).
+We will use industry-standard tools (e.g., Jenkins, Puppet, Chef, Docker, KVM)
+  to implement the development and deployment tool chain.
+The development of the tool chain will be done in an agile fashion to enable
+  quick initial delivery and continuous adaption to the project's
+  requirements.
+%\todo{Deployment will be specified from a separate serer instance (e.g., where the overall code will be maintained), and can be scripted such that entire stacks and stack dependencies are deployed to the server and the vehicles. Prior to deployment we will provide functionality for automated compilation, testing of code based on predefined rules (i.e., once every x duration, or once dependencies have changed). Web-based access control and commit control}.
+%\todo{We need to deploy a yellow-zone server!!}.
+
+
+\item {\bf Setup and implementation of a communication framework}
+\label{task:wpcloud:3}
+\taskpartners{\IBM}{all other partners}
+
+Communication between applications in the software stacks on the vehicles
+  and on the server will be implemented using software building on the publish-subscribe principle (\eg ROS, MQTT)
+ featuring precise access control, data encryption, small overhead
+  communication important for wireless operation, and various forms of Quality of
+  Service (QoS) settings.
+This communication framework will focus on small-message communication.
+Large bulk data transfers are implemented using direct access
+  to the bulk data storage service setup in Task~\WPCloud.\ref{task:wpcloud:4}.
+
+
+\item {\bf Setup and implementation of the bulk data storage service.}
+\label{task:wpcloud:4}
+\taskpartner{\IBM}
+
+The bulk data storage service will consist of an object store like OpenStack Swift,
+  which is ideal for storing unstructured data that can grow without bound.
+It's built for scale and optimized for durability, availability, and concurrency
+  across the entire stored data set.
+In \Project,
+  we intend to mainly use the bulk storage service for database bootstrapping and
+  backup, i.e., long-term data storage.
+
+
+%\item {\bf Setup and implementation of a server-side monitoring service.}
+%\label{task:wpcloud:5}
+%\taskpartner{\IBM}
+%
+%A running instance of the \Project software is composed from many services.
+%Some running on the vehicles others running on the backend servers.
+%To ensure effective monitoring and debugging,
+%  it is crucial to have a central system where log messages (in particular
+%  errors and warnings) from all services are stored and aggregated.
+%In this task,
+%  we intend to implement a centralized monitoring service that reads and stores
+%  log messages sent via the communication framework,
+%  and provides a web-based GUI to display and filter these messages.
+%We intend to build this service on top of standard components, e.g.,
+%  Logstash and Kibana.
+
+\end{tasks}
+
+
+\begin{deliverables}{\WPCloudNo}
+
+
+\item {\bf Development infrastructure} \putright{{\bf M1}}
+	\delresponsible{\IBM}
+	\label{del:wpcloud:1}
+
+A report documenting access to running instances of
+    both the project-internal development repository
+    and the public open-access repository
+    together with issue-tracking and wiki support.
+
+
+\item {\bf Hardware stack} \putright{{\bf M4(i), M28}}
+	\delresponsible{\IBM}
+	\label{del:wpcloud:2}
+
+ A report that
+  (1)~specifies the server-side hardware and
+  (2)~documents how to access the service-side hardware for projects partners.
+
+
+\item {\bf Development and deployment too chain} \putright{{\bf M8}}
+	\delresponsible{\IBM}
+	\label{del:wpcloud:3}
+
+Software in the project source repository for
+  automatic deployment and the setup of continuous integration servers.
+  A running instance of a continuous integration server.
+
+
+
+\item {\bf Communication framework specified and operational} \putright{{\bf M12}}
+	\delresponsible{\IBM}
+	\label{del:wpcloud:4}
+
+Software for the communication server
+  that is deployed using the deployment tool chain from
+  Task~3.\ref{task:wpcloud:3}.
+  A report documenting access to the test communication server running
+  on the backend.
+
+
+\item {\bf Bulk data storage service} \putright{{\bf M16}}
+   \delresponsible{IBM}
+  \label{del:wpcloud:5}
+
+A report providing access information for the object store
+  serving as the bulk data storage service.
+\end{deliverables}
+
+
+
+%\clearpage
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPCloudNo.\ref{task:wpcloud:development-infrastructure}:
+      Project-wide development infrastructure
+    & Project-internal and public repository, issue tracker, and wiki available.
+    \\\hline
+  Task~\WPCloudNo.\ref{task:wpcloud:1}: Specification and setup of hardware stack
+    & Backend server assembled and operational. Vehicle-side server assembled and operational.
+    \\\hline
+  Task~\WPCloudNo.\ref{task:wpcloud:2}: Development and deployment tool chain
+    & Automatic deployment of server-side and vehicle-side software stack working.
+      Continuous building and testing of project software working.
+    \\\hline
+  Task~\WPCloudNo.\ref{task:wpcloud:3}: Communication framework.
+    & Backend server for messaging service running, accessible, and used as the primary communication
+      medium.
+    \\\hline
+  Task~\WPCloudNo.\ref{task:wpcloud:4}: Bulk storage service.
+    & OpenStack SWIFT service running and available.
+      Backup and database bootstrapping implemented.
+%    \\\hline
+%  Task~\WPCloudNo.\ref{task:wpcloud:5}: Monitoring service.
+%    & Monitoring service running, available, and integrated with communication
+%      framework.
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPCloud-specific Risks}{Contingency Plans}
+
+Server-side hardware is not powerful enough for the required scale of mapping or scene understanding
+  & low
+  & The server-side functionality does not strictly require online execution capability.
+  \\\hline
+Required storage capacity/cost  higher than estimated.
+  & medium
+  & Full storage focus will be laid on a reduced-scale urban neighborhood area demonstrator. At the same time methods for effective compression and summarization are developed in \WPMapping to enable scalability.
+  \\\hline
+Software integration efforts higher than expected
+  & medium
+  & Make sure that all project partners write portable, easily buildable, and deployable code.
+    Require commitment to continuous integration and testing.
+\end{RiskTable}
+}
+

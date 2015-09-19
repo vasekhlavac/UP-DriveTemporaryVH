@@ -1,0 +1,128 @@
+% !TEX root = ../proposal.tex
+
+\paragraph{\WPNavigation: \WPNavigationTitle \\}
+
+{\noindent\wptablefont
+\label{wp4}
+
+\wptableheaderA{\WPNavigationTitle}{\WPNavigation}{M3}{RTD}{\VW}
+\wptableheaderB{\WPNavigationVW}{\WPNavigationETHZ}{\WPNavigationIBM}{\WPNavigationCLUJ}{\WPNavigationPRAGUE}
+
+\headerBox{Objectives}{}
+
+The aim of this work package is to provide decision making and navigational abilities necessary for automated operation in urban areas. The key objectives include:
+\begin{denseItemize}
+\item Development of an appropriate layered framework comprising route and tactical planning, maneuver and trajectory planning, and trajectory control
+\item Proper integration of constraints arising from traffic rules, collision risks, and time budget for reaching the target destination
+\item Consideration of map verification and fall-back strategies
+\end{denseItemize}
+To achieve these aims, this work package relies on information from the online local perception, scene understanding, as well as from offline metric and semantic mapping.
+
+\begin{tasks}{\WPNavigationNo}
+
+\item  {\bf Route planning}
+  \taskpartner{\VW}
+	\label{task:wpnav:route}
+
+The goal of this task is to provide a topological route to the goal pose. For that purpose road network topology will be taken into account. If necessary, this will be accompanied by computation of kinematically feasible paths and computing a speed profile. For that purpose road geometry and semantic information from the offline map -- such as lane width and position of zebra crossings -- will be used.
+
+
+%mru: this appears to fit better intwo WP: scene understanding. Moved there.
+%\item  {\bf Scene prediction}
+%  \taskpartner{\VW \todo{}}
+%	\label{task:wpnav:prediction}
+%The goal of this task is to provide a prediction of the scene evolution in the near future (~10s). This prediction includes the movement of other traffic participants and is based on the current understanding of the scene as well as local perception data and offline semantic maps.
+
+
+\item  {\bf Tactical planning}
+  \taskpartner{\VW}
+  \label{task:wpnav:tact}
+
+On this level tactical decisions are addressed. This includes decisions, whether to perform a u-turn or try to squeeze through; 'overtake' that standing car or wait another two minutes for it to move; give way or continue driving; reduce the speed due to inconsistencies in maps or field of view obstruction. The decisions need to take into account a number of (often competing) requirements such as reaching the goal without delay, following traffic rules, keeping safety distances, avoiding complex maneuvers, and behaving properly.
+
+
+\item  {\bf Trajectory planning}
+  \taskpartner{\VW}
+  \label{task:wpnav:trajectory}
+
+The task of this component is to plan and execute collision-free trajectories for maneuvers in the presence of dynamic objects. It comprises two classes of trajectory planning: (i) on-lane planning for driving along the lanes of the road network and (ii) off-lane planning for performing maneuvers such as parking or u-turns.
+
+
+\item {\bf Trajectory control}
+	\taskpartner{\VW}
+	\label{task:wpnav:control}
+	
+Within this task a real-time trajectory controller will be adapted from the V-Charge project and further developed. It will cover vehicle speeds between 0-30km/h for forward driving and 0-10km/h for reversing. To enforce the modularity of the navigation software stack, the trajectory interface will be kept the same for both the original V-Charge cars as well as the newly developed vehicle. 
+
+\item  {\bf Mission Executive}
+  \taskpartner{\VW}
+  \label{task:wpnav:mission}
+
+The objective of this task is to orchestrate all the relevant actions as well as state transitions of the car system. These include activation and deactivation of automated mode, engine start/stop, computation/re-computation of the route, triggering of maneuvers, setting indicator lights, etc.
+
+%wde: moving to scene understanding
+%\item  {\bf Self diagnosis}
+%  \taskpartner{\VW}
+%  \label{task:wpnav:diagnosis}
+
+%The objective of this task is to give the vehicle the capability of estimating its own current state of knowledge. This needs to be compared with the level of knowledge necessary to perform certain actions (go into automated mode, drive at a given speed, overtake another vehicle, take a turn at an intersection). Relevant inputs are localization accuracy (\WPPerception), map integrity verification (\WPPerception), estimation of field of view - including view obstructions (\WPPerception). The result of this comparison will be passed on to the tactical planning (Task~\WPNavigation.\ref{task:wpnav:tact}).
+
+\end{tasks}
+
+
+\begin{deliverables}{\WPNavigationNo}
+
+\item {\bf Software specification and architecture for the decision making and navigation} \putright{{\bf M6}}
+   \delresponsible{VW}
+
+This deliverable will provide the general architecture of the navigation stack. It will list all software components involved in the decision making and navigation processes, the interfaces between them as well as to components from other work packages. It will also provide approaches identified to be pursued in the project.
+
+\item {\bf First development and integration cycle of decision making and navigation} \putright{{\bf M22}}
+   \delresponsible{VW}
+
+This deliverable will provide a detailed explanation of the individual modules involved into the decision making and navigation processes. By this time the full software stack is expected to be functional with tasks such as route planning, trajectory control being in a state only requiring minor updates.
+The deliverable will report first results gained both in simulation as well as with the real car system. Most importantly it will provide results from automated driving trials performed with the first version of the full system as expected for MS3.
+The deliverable will be in form of a technical report or a publication.
+
+\item {\bf Second development and integration cycle of decision making and navigation} \putright{{\bf M46}}
+   \delresponsible{VW}
+
+This deliverable will provide a detailed explanation of the individual modules involved into the decision making and navigation processes as well as their evaluation. By this time the full software stack is expected to be fully functional with modules such as tactical and trajectory planning as well as mission executive able to handle all relevant scenarios.
+The deliverable will report results gained in simulation and with the real car system. It is also expected that the system will be well integrated with other work packages so the deliverable will provide results from automated driving trials performed with the full integrated system. The deliverable will be in form of a technical report or a publication.
+
+\end{deliverables}
+
+%\clearpage
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPNavigationNo.1: Route planning & Software module integrated into the system and delivering topological routes in accordance with the criteria identified in the specification phase.\\ \hline
+ % Task~\WPNavigationNo.2: Scene understanding & \todo{}.\\ \hline
+ % Task~\WPNavigationNo.3: Scene prediction & \todo{}.\\ \hline
+  Task~\WPNavigationNo.2: Tactical planning & Software module integrated into the system and able to handle the scenarios identified in the specification phase.\\ \hline
+  Task~\WPNavigationNo.3: Trajectory planning & Software module integrated into the system and delivering collision-free trajectories in real-time. Results comply with criteria identified in the specification phase.\\ \hline
+  Task~\WPNavigationNo.4: Trajectory control & Software module integrated into the system. Trajectory following performance is in accordance with the criteria identified in the specification phase.\\ \hline
+  Task~\WPNavigationNo.5: Mission executive & Software module integrated into the system. Orchestration of relevant state transition as well as action triggering in accordance with criteria identified in the specification phase.%\\ \hline
+  %Task~\WPNavigationNo.6: Self diagnosis & Software module integrated into the system and able to asses system limits in accordance with the criteria identified in the specification phase.
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPNavigation-specific Risks}{Contingency Plans}
+
+High dependency on all other system parts. Delays in system integration make it impossible to test navigation stack in the car. & medium & Throughout the project lifespan, the development of the navigation stack will be accompanied by tests in a dedicated simulation environment. Simulation based development will prevail in the beginning and as the project progresses and software matures, tests in the car will gain on importance.\\ \hline
+
+Solution for semantic data aggregation (WP~\WPMappingNo) only available later in the project & medium & A manually labeled map can be used in the meantime. \\ \hline
+
+Good performance of the localisation system (WP~\WPMappingNo) only available later in the project & low & A reference sensor - like a high class GPS+IMU - can be used in the meantime. \\ \hline
+
+Stable and accurate object detections (WP~\WPPerceptionNo) only available later in the project & medium & A reference sensor - like the Velodyne - can be used in the meantime.
+
+\end{RiskTable}
+}
+
+
+

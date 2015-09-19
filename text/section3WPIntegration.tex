@@ -1,0 +1,166 @@
+% !TEX root = ../proposal.tex
+
+\paragraph{\WPIntegration: \WPIntegrationTitle \\}
+
+{\noindent\wptablefont
+
+\wptableheaderA{\WPIntegrationTitle}{\WPIntegration}{M2}{RTD}{\VW}
+\wptableheaderB{\WPIntegrationVW}{\WPIntegrationETHZ}{\WPIntegrationIBM}{\WPIntegrationCLUJ}{\WPIntegrationPRAGUE}
+
+
+\headerBox{Objectives}{} 
+
+This work package covers the specification, integration and testing of the whole system as well as its components. The main objective is to ensure that the contributions from all partners and work packages form a working system able to successfully demonstrate the specified application use-cases. This includes the organization of the integration and testing weeks and the smooth integration of the technologies developed in this project. Thus, all work packages will strongly interact with \WPIntegration. Key elements in \WPIntegration include:
+\begin{denseItemize}
+%mru: moved to WP: cloud infrastructure
+%\item A common \textbf{development infrastructure} for the partners
+%mru: should be in WP: specification
+%\item A \textbf{system specification and architecture} including definition of the requirements and overall system architecture including specification of components and interfaces
+\item An integration plan, that defines the timeline for integration of different system elements as well as quality gates.
+\item Four integration and testing weeks where all partners meet 
+\item System testing activities
+\item System evaluation
+\end{denseItemize}
+
+
+\begin{tasks}{\WPIntegrationNo}
+
+\item {\bf Integration plan}
+\label{task:wpint:intplan}
+\taskpartners{\VW}{\IBM}
+
+The integration plan will specify which components have to provide certain functionalities to allow for successful integration. It will furthermore contain a detailed time line for the integration and thus serves as a manual for the integration weeks. The system will be modular and have a highly flexible architecture to support decentralized development and integration. \IBM{} and \VW{} will jointly conduct this task. \VW{} will focus on the vehicle side, while \IBM{} will focus on the server side.
+
+\item  {\bf System-wide data acquisition}
+	\taskpartners{\VW}{all other partners}
+     \label{task:wpper:car}
+  
+The data acquisition task is in charge of system-wide data acquisition ensuring its availability for algorithm development, testing and validation purposes. It will be carried out continously throughout the project. Initially the V-Charge platform will be used and from M12 on the \Project platform(s).  
+
+\item {\bf Integration and test tools and processes}
+\label{task:wpint:tools}
+\taskpartners{\VW}{All other partners}
+
+In order to make the integration and test efficient and effective a set of tools and processes will be installed or developed. The choice of the tools is based on best practices from previous collaborative robotics projects. This may include checklists, developer guidelines, simulation environments, playback functionality and mission log parser.
+%\begin{denseItemize}
+%\item \textbf{developer guidelines}. Common grounds for aspects such as reference frames, timestamps, transformation representations, interface design, error checking, log message writing, ticket writing, in-car-testing.
+%%mru: moved to wp cloud
+%%Deployment process. Result: all up-to-date car software downloadable from one place and boots up automatically in the car.
+%%\item \textbf{checklists} for data recording, driving, etc..
+%%\item \textbf{simulation environment}, covering at least \WPNavigation.
+%%\item \textbf{system-wide playback functionality}. Covers \WPPerception, \WPSceneUnderstanding and \WPNavigation, possibly more.
+%%\item \textbf{Mission log parser}. HTML report of a driven mission with visualisation of key performance indicators.
+%%\end{denseItemize}
+%%mru: moved to wp cloud
+%%Nice to have: Automated regression test. Software downloaded from server runs a suite of tests with defined success criteria. Html report gets generated. If failed, the authors of recent commits get notified.
+
+\item {\bf System integration}
+\label{task:wpint:test}
+\taskpartners{\VW}{all other partners}
+
+In this task the integration of the various modules that comprise the \Project{} system will take place according to the integration plan specified earlier in this work package. The activities take place at the partner sites, during partner visits as well as during the integration weeks.
+
+%\item {\bf Integration and testing weeks}
+%\label{task:wpint:intweek}
+%\taskpartner{\todo{Who?}}
+%
+%Four consortium-wide integration and testing weeks will form a key concept to ensure a smooth integration of all the individual modules to a working overall system -- in alignment with the use cases to be demonstrated. \todo{Who?} will take care of the organization of these events.  An integration and testing week is a meeting including all partners and lasts for one to two weeks. These weeks will not only be used to integrate the individual components but will also be used to carry out evaluation and test runs on the overall system. We plan to conduct one week at the beginning and at the end of each integration and testing phase, thus at \todo{when?}. In addition to that, per-partner integration spurts and subsequent code freezes are conducted before the consortium-wide integration weeks to ensure working components.
+
+\item {\bf System evaluation and validation}
+\label{task:wpint:eval}
+\taskpartners{\VW}{all other partners}
+
+Based on the requirements defined in \WPSpecification a \emph{test case catalogue} with success criteria and test method for the key requirements will be compiled. It will cover evaluation requirements for individual components as well for the system as a whole.
+In the evaluation phases of the project the effectiveness of the developed components will be evaluated and validated according to the targets defined within the test case catalogue.
+
+\end{tasks}
+
+\begin{deliverables}{\WPIntegrationNo}
+
+%\item Development Repository \putright{\bf M3}
+%  \label{del:wpintegration:repository}
+%  \delresponsible{\ETHZ} A web-based repository for software development. A private repository will restrict access to consortium partners. A public repository will allow for anonymous access. Both will support bug tracking and project-specific wiki pages.
+
+%\item {\bf System-wideData Acquisition} \putright{{\bf M7}}
+%   \label{del:wpa:inidata}
+%   \delresponsible{\CLUJ}
+%
+%   This deliverable will consist of log files recorded from test runs which are used for component and system validation across all technical work packages.
+
+
+\item Integration plan for first development cycle\putright{\bf M12}
+  \label{del:wpintegration:intplan1}
+\delresponsible{\VW}
+
+Initial integration plan indicating integration milestones and quality gates for the individual components. The document will be used as tracking instrument and thus adjusted over the course of the development cycle.
+
+\item Initial component and system data sets\putright{\bf M14}
+  \label{del:wpintegration:dataset}
+\delresponsible{\VW}
+
+Initial data sets of all relevant environment and driving conditions recorded with the completed vehicle platform, compiled and made available to the partners.
+Note: Data sets collection will be continuously performed over the course of the project and the database extended.
+
+\item Integration and test tools and processes \putright{\bf M16}
+  \label{del:wpintegration:inttools}
+\delresponsible{\VW}
+
+A report describing the integration tools and processes available.
+
+\item Evaluation report on integration process and results of first development cycle \putright{\bf M24}
+  \label{del:wpintegration:eval1}
+\delresponsible{\VW}
+
+A report on the conducted evaluation of the overall system and its performance.
+A report about the conducted integration activities, problems and resolutions as well as a summary of the integration weeks and related activities.
+
+\item Integration plan for second development cycle\putright{\bf M30}
+  \label{del:wpintegration:intplan2}
+\delresponsible{\VW}
+
+Initial integration plan indicating integration milestones and quality gates for the individual components. The document will be used as tracking instrument and thus adjusted over the course of the development cycle.
+
+\item Evaluation report on integration process and results of second development cycle \putright{\bf M48}
+  \label{del:wpintegration:eval1}
+\delresponsible{\VW}
+
+A report on the conducted evaluation of the overall system and its performance.
+A report about the conducted integration activities, problems and resolutions as well as a summary of the integration weeks and related activities.
+
+\end{deliverables}
+
+%%\clearpage
+%\newHeaderBox{Key Work Package Inter dependencies}{}
+%\WPIntegration{} highly interacts with the previous work packages
+%since the integration depends on the research done before. \\[1ex]
+
+\mosriskheader
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  %Task~\WPIntegrationNo.\ref{task:wpintegration:repository}:
+  %Development Repository & The repositories and the Web system for the software documentation are up and running \\ \hline
+  Task~\WPIntegrationNo.\ref{task:wpint:intplan}: Integration Plan & The integration plan is defined and all partners agree on how
+  to assemble their modules into a functional overall system. \\ \hline
+  Task~\WPIntegrationNo.\ref{task:wpint:tools}: Integration tools & Integration tools have been defined and are available, usable, and used by all consortium members. \\ \hline
+  Task~\WPIntegrationNo.\ref{task:wpint:test}: System Integration & The subsystems constructed by assembling the software component as defined in the integration plans are functioning. First tests on consistency have been carried out.  \\ \hline
+ Task~\WPIntegrationNo.4: System-wide data acquisition & Ground truth data from a controlled environment as well as system-wide data sets have been acquired and made available to all partners.\\ \hline  
+%  Task~\WPIntegrationNo.\ref{task:wpint:intweek}: Integration Weeks & Four integration weeks are organized and the partners
+%  succeed in combining the selected subset of modules. The modalities of the integration will be defined in the integration plan.\\ \hline
+  Task~\WPIntegrationNo.\ref{task:wpint:eval}: System Evaluation & The components are tested and evaluated both individually and as a whole. Performance values are provided and extensive experiments have been conducted showing the capabilities of the system.
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPIntegration-specific Risks}{Contingency Plans}
+
+The Integration plan becomes outdated & medium & It may happen that certain aspects of the development are under- or over-estimated in the early planning stage.  Additionally, it may happen that the interfaces of some components need to be modified by suppressing or introducing certain functionalities. In these cases \Project{} will revise the integration plan to accommodate for these variations. The spiral life-cycle approach supports small such accommodations.\\ \hline
+
+Some components are not available in time for a specific integration week & low & Integration and testing weeks are scheduled such that a short delay in component development can be accommodated. In case of more significant delay in a module's development a limited version of the module ensuring full interaction capability with the other modules will be provided.\\ \hline
+
+An integration week is not fully successful & low & It may happen that the time allocated for an integration week turns out to be insufficient to integrate all the modules planned in the integration plan. In this case \Project{} will either towards the end of the integration week ensure that the conditions are met to complete the missing parts of the integration without the need of physical presence. Alternatively \Project{} will schedule an additional integration week.
+\end{RiskTable}
+
+
+}

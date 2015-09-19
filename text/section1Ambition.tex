@@ -1,0 +1,170 @@
+% !TEX root = ../proposal.tex
+
+\subsection{Ambition}
+\label{sec:ambition}
+% - Describe the advance your proposal would provide beyond the
+%   state-of-the-art, and the extent the proposed work is ambitious.
+%   Your answer could refer to the ground-breaking nature of the
+%   objectives, concepts involved, issues and problems to be addressed,
+%   and approaches and methods to be used. 
+% - Describe the innovation potential which the proposal represents.
+%   Where relevant, refer to products and services already available on
+%   the market. Please refer to the results of any patent search carried
+%   out.
+
+This section describes the advances that \Project{} will bring over and above the current state of the art in automated driving and its constituent base technologies. It will also describe the step changes in technological readiness levels (TRL) that we will achieve for the key base technological components.
+
+SAE classifies driving into Driver only, Assisted, Partial automation, Conditional automation, High automation and Full automation corresponding to levels of automation from 0 (Driver only) to 5 (Fully automated)\footnote{European Roadmap Smart Systems for Automated Driving, EPoSS, 2015}. Level 3 of automation allows the human driver to do other activities while driving, whereas, levels 4 and 5 consider a complete adoption of the driving process by the vehicle while the driver is even able to fall sleep.  
+
+On a commercial level the automotive industry has already reached a quite advanced level proved by the smart driving assistance technologies including adaptive cruise control, lane departure warning, and lane keeping assistance that come integrated with many new vehicles. Although the driver still has to interact with the vehicle, the previously mentioned technologies represent a significant commercial step towards automated driving. It seems clear that a combination of adaptive cruise control with lane keeping assistance and an advanced environment perception will lead to an automated driving solution in the future.
+
+On a research and pre-development level vehicle manufacturers and research companies have organized automated driving demonstration events. For instance, Google presented a self-driving car. Daimler drove the route from Mannheim to Pforzheim with an automated driving prototype car.  Renault demonstrated an automated valet parking technology on an electric vehicle, performing a drive along a controlled road.
+
+Thus, while the levels of automation 0 to 2 are available on the market, intensive research is performed for the higher levels -- in particular for the development of key base technologies that will enable them. In the following, we will review the state of the art in these technologies -- single and multi-modal perception, lifelong localization and mapping, and scene understanding -- and illustrate how \Project{} advances the relevant TRL.
+
+%1. SAE International, [Online]. Available: http://www.sae.org. 
+
+
+
+\subsubsection{State of the art in single and multi-modal perception}
+
+The goal of perception in autonomous driving applications is to detect, track, classify and represent the objects in the driving environment. The key elements to achieve these tasks are a redundant, robust, accurate and multimodal sensorial system providing a 360 degree coverage of the vehicle surrounding. 
+
+In this regard, the use of 3D passive sensors, represented by stereo systems, in combination with other modalities is currently in development ~\cite{utc-Franke, utc-Oniga, utc-Vatavu, utc-Broggi}. A single stereo sensor provides a significantly higher volume of information than other sensors and also at least 3 different aligned modalities: depth, optical flow and grey level images. The fusion of these modalities increases the dimensionality of low level representation and by consequence the quality of detection, tracking and classification. In contrast to that, a 6D-vision approach~\cite{utc-Franke} computes the 3D scene points and their associated 3D motion vectors. The exact position, moving direction and speed for each pixel is determined, offering the possibility of predicting the future positions. Rectangular elements like stixels that adapt very well to the objects in the traffic scene may be used for obtaining an optimized scene	 representation. Stixels motion estimation and tracking across multiple frames is achieved by using the 6D-vision approach. 
+
+Concerning representation, in ~\cite{utc-Oniga} the concept of classified elevation map was introduced allowing the navigable channel detection and accurate objects separation even in unstructured or crowded environments. The attributed polygonal lines are used for compact objects representation suitable together with optical flow for tracking and classification tasks ~\cite{utc-Vatavu}. 3D Voxel concepts~\cite{utc-Broggi} allow the detection even of hanging objects and can benefit of the optical flow or motion vectors for tracking purposes.
+Unfortunately none of these approaches offers an exhaustive solution to the perception problem. The uncertainties of the acquisition, of the sensors, of the models and of the processes requires a higher level of redundancy of the sensors, a 360 degree coverage of the vehicle environment, an early low level fusion of the sensors data, better detection, tracking and classification approaches. 
+
+In this context, a novel pixel level "Spatio-temporal and appearance based representation" will be developed by low level multi-sensor fusion. The low level representation will integrate 3D position, 3D motion and intensity or color components. This high-dimensionality low-level representation will be developed in a 360 degree vision context, based on a set of well selected sensors including stereo cameras, laser scanners, radars, large field of view cameras, arranged in a configuration offering good coverage, redundancy and good measurement accuracy. This novel representation will allow the development of a new generation of more robust and accurate detection, tracking and classification solutions. 
+
+We intend to exploit both the high quality of low level information and the higher performance of the novel detection tracking and classification solutions developed based on the availability of the rich low level information.
+
+
+%In the last years significant progresses were achieved in objects classification. New algorithms improvements were proposed in ACF ~\cite{utc-Dollar}, World Channel ~\cite{utc-Costea}, and Deep Learning ~\cite{utc-Krizhevsky} and exploitation of the context information  seems to increase even more the quality of results. 
+
+{\bf Expertise in single and multi-modal perception}
+ 
+The Image Processing and Pattern Recognition Research Centre (IPPRRC), part of Computer Science Department from Technical University of Cluj-Napoca, has broad expertise in the fields of image processing, pattern recognition, computer vision, hardware design for image acquisition and processing with applications in advanced driving assistance and autonomous driving. 
+
+Some significant FP7 and European projects in which IPPRRC was involved in, being focused on perception in urban outdoor environment are: R5-COP, PAN-Robots, CoMoSeF, DRIVE-C2X, and INTERSAFE-2. Closer to market, IPPRRC was also involved in research projects for significant players in the automotive field as Volkswagen AG, which currently is partner in the proposal, and Robert Bosch GmbH, carrying out research in driving environment perception including road surface measurement and description.
+%Between 2001 and 2010, in the framework of 14th research projects funded by Volkswagen AG, solutions for stereo-vision perception in highways, urban and intersection environment were developed. Since 2013, IPPRRC is cooperating with Bobert Bosch GMBH, in the field of stereo-vision based perception, approaching topics related to road surface measurement and description.
+
+Important research results have been obtained in the fundamental domains for stereovision based perception like dense stereo reconstruction \cite{utc-Pantilie},\cite{utc-Haller}, dense optical flow \cite{utc-Drulea}, ego motion estimation \cite{utc-Szakats}, stereo system calibration \cite{utc-Nedevschi-calibration}.
+
+The concepts of structured and unstructured perception, the elevation map based unstructured perception and the classified elevation map were introduced in \cite{utc-Nedevschi-ASensor}, \cite{utc-Oniga-ProcessingDense} offering a solution for crowded urban and off-road environments perception and representation \cite{utc-Danescu-Modeling}, \cite{utc-Danescu-AParticle}.
+
+Significant contributions were achieved in 3D lane detection, tracking and classification using a stereovision based 3D approach combined with 3D clotoidal road model, Kalman filter \cite{utc-Nedevschi-HighAccuracy}, \cite{utc-Nedevschi-3DLane} and later particle filter \cite{utc-Danescu-ProbabilisticLane} based tracking. A solution for painted objects detection, 3D localization, tracking and classification was achieved in the framework of the INTERSAFE-2 project \cite{utc-Danescu-Detection} by fusing 3D stereo and 2D intensity information.
+
+In the obstacle detection significant contributions were achieved by fusing the 3D position information with the optical flow \cite{utc-Nedevschi-OnBoard} \cite{utc-Pantilie-RealTime}. The fusion of the 3D position information with the optical flow and intensity information in a probabilistic framework allowed the improvement of the object detection \cite{utc-Giosan-Superpixels} and tracking solutions \cite{utc-Bota}.
+
+In the field of pedestrian detection an important contribution was the early introduction of stereo information in pedestrian detection approach, with benefits in pedestrian hypothesis detection, depth based filtering of the visual appearance data, size based model selection \cite{utc-Nedevschi-Stereo}.
+The visual code book concept and its use in object and pedestrian detection was successfully demonstrated in \cite{utc-Costea-WordChannel}.  
+
+
+
+
+% cvut perception expertise
+TODOCVUT perception expertise 
+
+\fbox{\begin{minipage}{0.99\linewidth} { \bf
+The contribution of the \Project{} project in multi-modal perception for urban outdoor environments} will be focused on a 360 degrees redundant perception solution based on available or new 2D and 3D sensors and on the spatio-temporal and appearance based low level representation. This new representation will allow to design a new generation of much more robust algorithms for perception adaptation to adverse visibility conditions, road infrastructure perception, real time 3D terrain perception, road user perception, and vehicles and bicyclists signaling detection. A supplementary improvement comes from the object level multi-sensor fusion and consist on perception refinement offering an increased robustness and accuracy of the detection, tracking and classification methods.
+\end{minipage}}
+
+
+
+\subsubsection{State of the art in lifelong localization and mapping}
+Vision-based mobile robot localization and mapping has gained substantial attention over the past ten to fifteen years, as decreasing market prices have made the  cameras an increasingly attractive sensor unit for mobile robots. The richness of information present in camera images allows perceiving and modelling the environment and inferring the robot's current location with respect thereof. However, vision naturally comes with its very own challenges - especially in long term operations. Changing light conditions and varying shadows adjoin the structural changes also present to other sensors such as lasers. To overcome these hurdles, multifarious attempts have been made to model and render vision-based localization systems robust to changes in appearance and structure. Most of these efforts, however, focus on topological localization. This technique allows high-level localization on a large scale, but does not provide a metrically accurate pose of the robot. The most prominent and promising approaches in this area are FAB-Map (\cite{cummins2008fab}), FAB-Map 2.0 (\cite{cummins2011appearance}), (''City-Scale Location Recognition''), CAT-GRAPH (\cite{maddern2013towards}), CAT-GRAPH++ (lowry2012cat), SeqSLAM (\cite{milford2012seqslam}). Further influential work in this area was done by Dayoub et al. (\cite{dayoub2008adaptive}), Johns et al. (\cite{johns2013feature}, \cite{johns2013dynamic}, \cite{johns2014generative}),  Schindler et al. (\cite{schindler2007city}) and Naseer et al. (\cite{naseer2014robust}).
+
+Unfortunately, none of these algorithms is able to provide what is absolutely essential for autonomous driving in urban environments: An accurate estimate of the car's pose within the range of a few centimeters, and this under all light and weather conditions. We refer to this as metric localization. In contrast to topological localization, only few metric localization systems that try to deal with changing environment conditions have been proposed in the past. In experience-based mapping, multiple separate views of surroundings are recorded and in this way eventually covering all lighting conditions is attempted(\cite{churchill2012practice}). Another approach, using RGB cameras and a laser, allows successful localization during both the day and the night (LAPS \cite{stewart2012laps}, LAPS-II \cite{maddern2014laps}). Within the V-Charge project, a robust metric localization system was developed that, similar to EBM, incorporates data from multiple visits to the same place into a single map ("Summary Maps for Lifelong Localization" \cite{muhlfellner2015summary}).
+While all of the above presented approaches yield metric pose estimates, they all have critical shortcomings that prevent them from providing a convincing solution to long-term vision-based localization for autonomous driving in urban environments: They either require special and expensive sensor equipment (LAPS), heavy offline processing (Summary Maps) or they don't scale (EBM). We therefore propose pushing forward the current frontiers in long-term metric visual localization and mapping, by creating a novel map management and localization framework. It shall combine both a server backend, where data from different agents and repeated visits to the same places is merged together and summarized into compact map representations, together with a smart online localization system that takes the current environmental conditions, such as weather and light, into account when querying the map to get a pose estimate. Furthermore, a map shall no longer be treated as a single entity, containing perhaps data from several visits of the same place, but become a continuously-integrated, permanent product that is set-up, maintained and available over indefinite time spans. With these novel concepts in mind, we aim at developing the first large-scale, long-term mapping framework that not only allows accurate, efficient and reliable mobile robot localization 24h/day, 7days/week and 365days/year but also serves as a platform to register and integrate semantic information.
+
+{\bf Expertise in lifelong mapping}
+In order to achieve the ambitious goal described above, the ASL can resort to long-standing experience and expertise in the field of vision-based localization and mapping. Selective work include the development of robust image feature descriptors ("BRISK" \cite{leutenegger2011brisk}), work on calibration of multi-sensor systems including cameras (\cite{furgale2013unified}), \cite{heng2014infrastructure}), on semantic mapping (\cite{vasudevan2007cognitive}), vision-based navigation (\cite{blosch2010vision}, \cite{lynen2013tightly}), metric and topological larce-scale mapping (\cite{lynenplaceless}, \cite{cieslewskimap}, \cite{dymczyk2015gist}, "Keep it Brief: Scalable Creation of Compressed Localization Maps"), visual-odometry for autonomous cars (\cite{leutenegger2014keyframe}, \cite{scaramuzza2008appearance}, \cite{scaramuzza2009real}) as well as for MAVs (\cite{weiss2012real}).
+
+In addition to that, \ETHZ has been part of the V-Charge consortium, heavily involved in developing the metric accurate and robust vision-based localization system (\cite{muehlfellner2013evaluation}). The valuable and far-reaching experience and competences gained in this project in this field enables \ETHZ to understand and clearly define the requirements and challenges imposed on a localization and mapping system for long-term operation in urban environments and find appropriate solutions for them. In addition to that, having extensively collaborated on this topic within V-Charge with Volskwagen, \ETHZ is already familiar with the work-flow processes and the infrastructure the localization and mapping system has to be integrated on. This past experience and collaborations form the basis upon which a slick progress and integration of the next-generation lifelong localization and mapping system can be expected from the very beginning of this project.
+
+Furthermore, the participation of \ETHZ in a series of other EU projects ("SHERPA", "Flourish", "TRADR", "EUROPA", "EUROPA2"), all on navigation of UAVs or UGVs, including localization and mapping in most of the projects, demonstrates their expertise and world-leading position in autonomous mobile robot navigation, localization and mapping.
+
+Last but not least, efforts at \ETHZ towards developing a lifelong localization and mapping framework will be carried out in collaboration with the "Zurich-Eye" spin-off company, widening the range of end-user applications and exploitation possibilities (see Section~\ref{sec:expl}) and bringing in additional collaborative expertise in this area, not only from within \ETHZ but also from the University of Zurich. 
+
+\fbox{\begin{minipage}{0.99\linewidth} { \bf
+The contribution of the \Project{} project in lifelong localization and mapping in urban outdoor environments} will be to develop the infrastructure and algorithms to build \textbf{lifelong maps} containing vision-based data for localization, as well as semantic objects for scene understanding. With this map, \textbf{metrically accurate localization for the vehicles at all times} will be possible on the one hand, and \textbf{local scene analysis and decision making} will be supported through integration of long-term semantic data.
+\end{minipage}}
+
+
+\subsubsection{State of the art in Scene Understanding}
+
+TODOCVUT check the section and provide own publication, if possible. leaving out also ok.
+
+Scene understanding is characterized by a higher-level comprehension of an entire scene, formed by raw data and potentially basic semantic structures.
+In this regard the analysis of the ego behavior is starting to see some production implementations in systems such as attention assists; research is moving forward trying to predict more complex behavior exploiting not only the signals from accelerator, steering wheel and shifter, but also the driver gaze and head orientation~\cite{unipr-Doshi09onthe}. 
+However, in order to perform an early detection of dangerous or uncomfortable situations, also other traffic partecipants behavior must be taken into account. This is a relatively new topic in the field of intelligent vehicles, mainly due to the high demanding perception and processing requirements needed to assess results in a robust way. Some of the most recent approaces try to use lidar and vision~\cite{unipr-5274065,unipr-4114350} for monitoring the environment 360 degrees~\cite{unipr-iav2010-braive} all around the vehicle and use the perceived data to predict the other vehicles intentions -- an approach \Project{} will also build on.
+
+The idea of exploiting a rich sensor suite~\cite{unipr-Bertozzi_equipmentand} is usually applied to the perception of the environment for performing driving tasks, however tracking the behaviors of other vehicles would increase the amount of information available to take decisions and therefore the safety level. Detecting the driver behavior requires to predict the trajectory of other vehicles in advance. Multiple technologies such as vision, radar and lidar can be fused together with the aim to provide multiple observation of the target vehicle, construct a rich description of its behavior and comparing this with existing models and with other information from the scenario in order to predict what it is going to do in the following time, such as if it is going to change lane or braking. 
+
+Also information from other vehicles can be used an taken into account to get a more precise description of the scenario. This requires some vehicle to vehicle or vehicle to infrastructure communication. 
+
+{\bf Expertise in Scene Understanding} 
+
+TODOCVUT expertise in scene understanding
+
+\fbox{\begin{minipage}{0.99\linewidth} { \bf 
+The contribution of the \Project{} project in scene understanding in urban environments} will be the development and testing of algorithms for estimating and predicting the behavior of other traffic participants and classifying the scene and the driving situation with the aim of triggering specific parametrization of the autonomous driving behavior, as well as controlling the status of on-board systems depending on the driving situation. 
+\end{minipage}} 
+
+
+
+
+%----------------------------------------------------------
+\subsubsection{Technological Advancement of Individual Components}
+\label{sec:trl}
+The key technological developments made during \Project{} will enable significant improvements in the level of robotics abilities in the automated transportat domain. Since \textbf{step improvements} will need be made in core robotic functionality such as \textbf{perception and semantic cognition, decisional autonomy, robustness, interaction and manipulation abilities}, the improvements will have a major impact in development of robotic systems for other market domains such as industrial and service robotics. In terms of the \textbf{Technology Readiness Levels} defined in the Strategic Research Agenda of euRobotics AISBL, \Project{} will contribute to the following technology domain.
+
+%\todo{For the TRL Assessment of the state of the art, as well as the level the EC wants projects to reach, please check section 2.7.12. "Key system ability targets" of the Multi Annual Roadmap: \url{http://www.eu-robotics.net/cms/upload/Multi-Annual_Roadmap2020_ICT-24_Rev_B_full.pdf}.}
+
+%\TRLHeader{Automated Car Design (\VW)}{2}{6}
+%
+%%\begin{wrapfigure}{l}{0.4\textwidth}
+%%  \includegraphics[width=0.4\textwidth]{pics/trldummy}
+%%\end{wrapfigure}
+%\VW{} has experience in \todo{}. {\em Over the duration of the project, we will deploy \todo{}.}
+%
+%
+%\TRLHeader{Cloud Computing (\IBM)}{2}{6}
+%
+%%\begin{wrapfigure}{l}{0.4\textwidth}
+%%  \includegraphics[width=0.4\textwidth]{pics/trldummy}
+%%\end{wrapfigure}
+%\IBM{} has experience in \todo{}. {\em Over the duration of the project, we will deploy \todo{}.}
+
+
+\TRLHeader{Perception (\CLUJ)}{3}{6}
+
+%\begin{wrapfigure}{l}{0.4\textwidth}
+%  \includegraphics[width=0.4\textwidth]{pics/trldummy}
+%\end{wrapfigure}
+%Some perception systems are already on the market, yet they lack important qualities of robustness, high confidence factor, accuracy, and 360 degree coverage. That is why \CLUJ{} focuses on a novel paradigm of the spatio-temporal and appearance based low-level representation to increase the robustness and the performances of the perception solutions. The low level representation will integrate 3D position, 3D motion and intensity or color components. This high-dimensionality low-level representation will be developed in a 360 degree vision context, based on a set of redundant and well selected sensors. This novel representation will allow the development of a new generation of more robust and accurate detection, tracking and classification solutions. 
+
+Some perception systems based on individual sensor technologies have already hit the automotive market. Yet, a robust, cost-effective solution able to offer 360 degree coverage for the crowded and cluttered urban environments is not available. That is why \CLUJ{} focuses on a novel paradigm of the spatio-temporal and appearance based low-level representation to increase the robustness and the performances of the perception solutions. The low level representation will integrate 3D position, 3D motion and intensity or color components. This high-dimensional low-level representation will be developed in a 360 degree vision context, based on a set of redundant and well selected sensors. This novel representation will allow the development of a new generation of more robust and accurate detection, tracking and classification solutions. 
+
+
+\TRLHeader{Lifelong Mapping (\ETHZ)}{2}{6}
+
+%\begin{wrapfigure}{l}{0.4\textwidth}
+%  \includegraphics[width=0.4\textwidth]{pics/trldummy}
+%\end{wrapfigure}
+\ETHZ has developed localization and mapping techniques ("Summary-Maps for Lifelong Visual Localization") for lifelong localization and mapping. However, the current systems lack the ability to scale to large scale environments such as urban neighborhoods and have only been evaluated during daytime. During the course of this project, \ETHZ will develop a novel localization and mapping system allowing long-term reliable localization at all times of day and night and in city scale environments.
+
+
+\TRLHeader{Scene Understanding (\PRAGUE)}{2}{5}
+
+Scene understanding for intelligent vehicles is a relatively new research topic, for which convincing approaches have yet to be provided. Starting off by combining data from the 360\degree{} perception system with the detailed semantic maps and creating a framework for describing scenes in terms of scenarios, we will develop novel scene understanding algorithms that will greatly improve the range, accuracy and stability of motion predictions made by intelligent vehicles.  
+
+\subsubsection{Innovation Potential}
+The innovation potential of \Project{} can be assessed from a system \& application as well as a base technology point of view. Concerning the former, as motivated in Section 1.3, it is highest in the broad area of ground-based automated transportation systems, particularly in on-road conditions. This includes both applications for passenger and goods transport transitioning from assisted to automated operation. It is also high for novel non-transport services delivered directly from cars, such as distributed computation, data serving \& storage and ad-hoc network maintenance. Indeed, the developed applications within \Project{} show a clear staggered route to market by focusing on immediate citizen needs that can be addressed with little change in existing legislation -- while supporting the buildup of mobile infrastructure enabling eventual adoption of fully automated applications. Concerning the latter, innovation potential is highest for the 360 degree perception, lifelong map \& knowledge management and scene understanding components developed within \Project{}, as these three technological competences in particular are delaying innovation in many robotics applications. While the map management part will be applicable to and a required component in any scenario involving environmental changes and dynamic objects, scene understanding as developed in the project is mainly applicable to on-road applications. As a result innovation potential of the underlying base technologies is expected to cover a broad range of robotic applications but also related areas from environmental monitoring to augmented reality.
+
+
+
+\subsubsection{Summary of \Project 's Ambition}
+In summary, the goal of \Project{} is to achieve scientific and technical excellence by moving beyond the current state of the art in automated transportation -- by targeting a citizen-centric focused application use case that at the same time well represents the general challenges of automated urban driving. By doing so, a seamless development roadmap becomes economically viable, where initially partially and later fully automated cars are employed on a broad scale for perception, computation and communication and data sharing activities. Via this ubiquity and actuality of data, current technological limitations in key technologies (particularly \wrt safety of operation in the 10+\,s horizon) can be drastically reduced if not eliminated. At the same time \Project{} focuses on the step advancement of key technologies as identified in the Multi-Annual Roadmap. Jointly, this two-pronged approach will enable a landscape where services facilitated by automated vehicles becomes a reality -- initially in the low-speed urban neighborhood areas addressed during the project duration with a seamless scale-out later on as the regulatory framework under development concretizes.
+

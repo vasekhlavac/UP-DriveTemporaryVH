@@ -1,0 +1,133 @@
+% !TEX root = ../proposal.tex
+
+
+\subsubsection{Detailed Work Package and Task Analysis}
+\label{sec:workpackages}
+
+
+\paragraph{\WPSpecification: \WPSpecificationTitle \\}
+
+{\noindent\wptablefont
+\label{wp1}
+
+\wptableheaderA{\WPSpecificationTitle}{\WPSpecification}{M1}{RTD}{\CLUJ}
+\wptableheaderB{\WPSpecificationVW}{\WPSpecificationETHZ}{\WPSpecificationIBM}{\WPSpecificationCLUJ}{\WPSpecificationPRAGUE}
+
+\headerBox{Objectives}{}
+
+This work package targets application specific challenges for the project and together with \WPIntegration \space enables system-wide considerations within the spiral life-cycle model adopted in \Project. The key objectives include:
+\begin{denseItemize}
+\item Analyzing end user needs and requirements concerning the proposed application scenarios
+\item Application concretization based on user needs
+\item Application requirements specification and architecture design of the overall system and components
+\end{denseItemize}
+
+\begin{tasks}{\WPSpecificationNo}
+\item  {\bf End-user needs and requirements analysis}
+  \taskpartners{\CLUJ}{\IBM, \VW}
+     \label{task:wpspec:enduser}
+
+This task will design and conduct a survey to analyze end-user needs based on the proposed applications. This is mediated by the industrial partners. The proposed applications and use cases descriptions will be exhaustively illustrated with the identified user needs.
+
+% MRU: merged with the task above
+%\item  {\bf Scenarios and use cases}
+%  \taskpartners{\CLUJ}{all other partners}
+%   \label{task:wpspec:scenuse}
+
+\item  {\bf Application analysis and requirement specification}
+  \taskpartners{\VW}{all other partners}
+  \label{task:wpspec:req}
+
+The task will derive the relevant requirements for the demonstrator applications from the use cases. Both functional and non-functional requirements will be derived. The application analysis will be focused on the project's main use-cases. Overhead images / maps as well as video data from manual drives will be used to analyse the relevant scene elements and traffic situations. Based on this analysis requirements for the whole system as well as its high level components will be defined. Requirements will be both qualitative and quantitative and will cover vehicle and server side of the system. The analysis will be complemented by a list of expected system limits. The analysis will be performed at the beginning of the project and revisited in the second half of the project.
+
+
+%MRU: merged with the task above
+%\item  {\bf Technical use case specification}
+%  \taskpartners{\todo{}}{all other partners}
+%	\label{task:wpspec:tech}
+%
+%The use cases will be selected and specified derived from the description of scenarios and use cases provided in task \WPSpecificationNo.\ref{task:wpspec:scenuse}. In particular, specifications will be provided with respect to safety and efficiency issues. This will include: definition of the state of the art safety and efficiency performances achieved for the demonstrator applications and the definition of measurable safety and efficiency objectives, to be obtained within the proposed project.
+
+
+\item {\bf Definition and specification of system architecture}
+  \taskpartners{\VW}{\IBM}{, all other partners}
+  \label{task:wpint:arch}
+
+The goal of this task is to define the global architecture of the overall system. It will be based on input from Task~\WPSpecificationNo.\ref{task:wpspec:req} and cover hardware as well as software aspects on the vehicle and backend. The \emph{vehicle hardware} definition will comprise the sensor setup, actuation and HMI elements as well as the computer system of the test vehicles. The \emph{server and communication hardware} definition will cover server hardware as well as hardware elements necessary for communication between vehicles and server back-end. The \emph{software system architecture} will start off with a high level overview of system components and their interfaces and will be accompanied by definition of \emph{communication architecture} for in-vehicle and vehicle to server communications. The definition of system architecture will be performed by all partners under leadership of industrial partners with \VW{} coordinating the vehicle side and \IBM{} the server-side. The definition will be performed at the beginning of the project and revised in its second half.
+
+
+\item  {\bf System hardware and software components specification}
+  \taskpartners{\CLUJ}{all other partners}
+     \label{task:wpspec:comp}
+
+This task will provide specifications for all relevant hardware and software components of the system. Initially specification for the hardware and high level software components will be provided. As the project progresses, that specification will be extended and detailed. Specification will include typical-case performance parameters as well as error-handling behavior. Special attention will be given to the timing and time-stamping model. Eventually, this will enable implementing integrity checks by data subscribers.
+
+\end{tasks}
+
+
+\begin{deliverables}{\WPSpecificationNo}
+\item {\bf Initial version of requirements definition, system architecture and component specification} \putright{\bf M4}
+	\delresponsible{\CLUJ, all other partners}
+	
+This deliverable will consist of initial end-user needs analysis, scenarios, use cases description, and inference of the functional and non-functional requirements. It will also present a concretization of the application based on user needs and, derived from them, a list of requirements on the application level. The system and components architecture and specification will be approached. This serves as the input for the individual component scoping, setup and implementation in \WPVehicle and \WPCloud. It also specifies and concretizes interfaces between all components. In the end, the specified system hardware and software components will be described.
+
+The deliverable will be updated in the second half of the project.
+
+\item {\bf Final version of requirements definition, system architecture and component specification} \putright{\bf M28}
+	\delresponsible{\CLUJ, all other partners}
+	
+This deliverable will be an updated version of the Deliverable D1.1 and will consist of the same elements.
+
+
+%\item {\bf Application analysis and requirement specification} \putright{{\bf M2(i), M26}}
+%   \label{del:wpa:usecase}
+%   \delresponsible{\VW}
+
+ 
+%\item {\bf System architecture and specification} \putright{{\bf M4(i), M28}}
+%	\delresponsible{\VW, \IBM}
+	
+
+%mru: merged with above deliverable
+%\item {\bf Hardware and Software Specification} \putright{{\bf M4(i), M28}}
+%   \label{del:wpintervention:swspecs}
+%   \delresponsible{\IBM}
+%
+%   This deliverable will consist of the hardware and software specification of the vehicle and server-side components in \Project{}.
+
+
+%\item {\bf Hardware and software component specification} \putright{{\bf M6(i), M30}}
+%   \label{del:wpintervention:hwspecs}
+%   \delresponsible{\VW}
+
+%This deliverable will consists of a list of hardware modifications on the vehicles and the server based on insights gained during the first cycle of the spiral life-cycle model. The modifications include changes specified in D\WPSpecificationNo.\ref{del:wpintervention:swspecs}.
+
+\end{deliverables}
+
+
+%\clearpage
+
+\mosriskheader
+
+
+
+
+%------------------------------------------------------------------------
+\begin{SuccessTable}{Task}{Measures for Success}
+  Task~\WPSpecificationNo.\ref{task:wpspec:enduser}: End-user needs analysis & Review of the end-users needs conducted and validated by the industrial partners.\\ \hline
+  %Task~\WPSpecificationNo.\ref{task:wpspec:scenuse}: Scenarios and use cases & The scenarios and use-cases have to exhaustively illustrate the user needs.\\ \hline
+  Task~\WPSpecificationNo.\ref{task:wpspec:req}: Application analysis and requirement specification & Requirements derived from the applications in agreement with end-user needs and all partners.\\ \hline
+ % Task~\WPSpecificationNo.\ref{task:wpspec:tech}: Technical use case specification & Technical use case specification have to highlight measurable improvements with respect to the state of the art.\\ \hline
+  Task~\WPSpecificationNo.\ref{task:wpint:arch}: System architecture specification & Overall system specification and the correlation between the structural and the functional architectures complete and consistent.\\ \hline
+ Task~\WPSpecificationNo.\ref{task:wpspec:comp}: System hardware and software components specification & Hardware and software components specification complete.
+\end{SuccessTable}
+
+\vspace{1cm}
+
+%------------------------------------------------------------------------
+\begin{RiskTable}{\WPSpecification-specific Risks}{Contingency Plans}
+
+Some of the required specifications may be infeasible or contradicting. & low & In such a case, a detailed analysis of the \emph{most important} system requirements will be carried out and the specifications will be adapted so that the system fulfills these major functionalities.
+\end{RiskTable}
+}
+
